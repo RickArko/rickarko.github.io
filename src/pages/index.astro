@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import ProofStrip from "../components/ProofStrip.astro";
+import About from "../components/About.astro";
+import Experience from "../components/Experience.astro";
+import Projects from "../components/Projects.astro";
+import Skills from "../components/Skills.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import { experience, home, projects } from "../lib/content";
+import "../styles/global.css";
+
+const year = new Date().getFullYear();
+---
+
+<BaseLayout>
+  <Nav name={home.profile.name} />
+  <main>
+    <Hero home={home} />
+    <ProofStrip home={home} />
+    <About home={home} />
+    <Experience experience={experience} />
+    <Projects projects={projects} />
+    <Skills home={home} projects={projects} />
+    <Contact home={home} />
+  </main>
+  <Footer name={home.profile.name} year={year} />
+</BaseLayout>

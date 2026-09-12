@@ -1,0 +1,43 @@
+---
+import type { Home, Projects } from "../lib/content";
+import { skillGroups } from "../lib/content";
+
+interface Props {
+  home: Home;
+  projects: Projects;
+}
+
+const { home, projects } = Astro.props;
+const skills = skillGroups(home, projects);
+---
+
+<section class="section" id="skills">
+  <div class="container">
+    <span class="section__eyebrow">Skills</span>
+    <h2 class="section__title">What I reach for</h2>
+    <p class="section__lead">
+      Areas of depth from shipped systems, plus the tools that show up across
+      public builds.
+    </p>
+    <div class="expertise-grid">
+      {
+        skills.expertise.map((item) => (
+          <article class="expertise-card">
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </article>
+        ))
+      }
+    </div>
+    <div class="skills-block">
+      <h3>Toolkit</h3>
+      <div class="skills-block__chips">
+        {
+          skills.technologies.map((tech) => (
+            <span class="chip">{tech}</span>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

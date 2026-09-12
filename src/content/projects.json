@@ -1,0 +1,249 @@
+{
+  "summary": {
+    "eyebrow": "Public builds",
+    "title": "Public projects, personal interest pieces, and ongoing research and development.",
+    "description": ""
+  },
+  "projects": [
+    {
+      "id": "cfbfpy",
+      "title": "cfbPy — College Football Fantasy Engine",
+      "category": "Public build",
+      "engagement_type": "Proof of concept",
+      "description": "A lightweight college fantasy football product supporting SEC, Big Ten, ACC, and FBS Independents (Notre Dame, UConn). Snake draft with PPR or basic scoring, live matchup tracking, waivers, and an AI Commissioner powered by LLMs. Built as a FastAPI backend with a Vue CDN SPA frontend on top of cfb-data.",
+      "impact": "A full fantasy football platform — real-time draft, roster management, waiver wire, scoring, and an AI commish — deployed and live. Handles multi-league, multi-season workflows with Supabase auth and Fly.io hosting.",
+      "image": "/images/project-logos/cfbfpy.gif",
+      "logo_text": "CF",
+      "accent": "#d97706",
+      "github_url": "",
+      "demo_url": "https://cfbfantasy.fly.dev",
+      "demo_label": "Live App",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Vue.js",
+        "Supabase",
+        "Fly.io",
+        "cfb-data",
+        "AI Commissioner"
+      ]
+    },
+    {
+      "id": "ffpy",
+      "title": "FFPy — Fantasy Football Optimization Engine",
+      "category": "Public build",
+      "engagement_type": "Open source toolkit",
+      "description": "A Streamlit app and Python toolkit that ingests nflverse and ESPN data into a local SQLite store, generates weekly projections, and optimizes lineups via linear programming.",
+      "impact": "An end-to-end build — data ingestion, projection modeling, constrained optimization, and a usable interface — in a domain where decision quality is measurable every week.",
+      "image": "/images/project-logos/FFPy.png",
+      "logo_text": "FF",
+      "accent": "#b45309",
+      "github_url": "https://github.com/RickArko/FFPy",
+      "demo_url": "https://ffpy-pickem.fly.dev/",
+      "demo_label": "Demo",
+      "demo_links": [
+        {
+          "url": "https://sleeper-brain.fly.dev/",
+          "label": "Sleeper League Brain",
+          "title": "Ingests Sleeper fantasy football leagues and provides league manager analytics for decision support"
+        }
+      ],
+      "technologies": [
+        "Python",
+        "Streamlit",
+        "PuLP",
+        "nflverse"
+      ]
+    },
+    {
+      "id": "m5",
+      "title": "M5 Forecasting Accuracy",
+      "category": "Public build",
+      "engagement_type": "Forecasting benchmark",
+      "description": "End-to-end global ML forecasting solution on a well-known business problem: 28-day daily forecasts across 30,490 Walmart product–store series, with three model families (Theta, AutoETS, LightGBM) and rolling-origin cross-validation.",
+      "impact": "Approaches world-class accuracy with a deliberately small feature menu — built around reproducibility, deterministic runs, and clarity rather than leaderboard chasing.",
+      "image": "/images/project-logos/M5-pipeline.gif",
+      "logo_text": "M5",
+      "accent": "#0891b2",
+      "github_url": "https://github.com/RickArko/M5",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "Nixtla",
+        "LightGBM",
+        "Polars",
+        "Terraform",
+        "AWS",
+        "Azure",
+        "GCP",
+        "Hetzner"
+      ]
+    },
+    {
+      "id": "m6",
+      "title": "M6 — Financial Forecasting Competition",
+      "category": "Public build",
+      "engagement_type": "Forecasting benchmark",
+      "description": "A forecasting and investment portfolio optimization system for the M6 competition: predicting 100 S&P 500 stocks and ETF returns over 12 months with probabilistic forecasts and portfolio optimization.",
+      "impact": "Combines time-series forecasting with mean-variance optimization and risk parity to produce actionable investment portfolios with measurable Sharpe ratios.",
+      "image": "/images/project-logos/M6-pipeline.gif",
+      "logo_text": "M6",
+      "accent": "#0891b2",
+      "github_url": "https://github.com/RickArko/M6",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "Nixtla",
+        "LightGBM",
+        "Polars",
+        "Portfolio Optimization",
+        "Time Series",
+        "Risk Analysis"
+      ]
+    },
+    {
+      "id": "ccquant",
+      "title": "ccquant — Crypto Quantitative Analysis Toolkit",
+      "category": "Public build",
+      "engagement_type": "Open source toolkit",
+      "description": "A CLI-driven crypto quant research toolkit that collects OHLCV market data from Binance, Coinbase, and CoinGecko into a local DuckDB database, with Polars-based panel loading for forecasting experiments.",
+      "impact": "Reproducible data ingestion pipeline for crypto market research — no servers, no dashboards, just a CLI that fetches, stores, and exports what you need for cross-exchange forecasting work.",
+      "image": "/images/project-logos/ccquant.png",
+      "logo_text": "CQ",
+      "accent": "#065f46",
+      "github_url": "https://github.com/RickArko/ccquant",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "DuckDB",
+        "Polars",
+        "httpx",
+        "Typer",
+        "Binance API",
+        "Coinbase API",
+        "CoinGecko API"
+      ]
+    },
+    {
+      "id": "basb",
+      "title": "BASB — Building a Second Brain",
+      "category": "Research & development",
+      "engagement_type": "Personal knowledge OS",
+      "description": "A Tiago Forte–inspired personal knowledge and tooling system: a one-shot installer that bootstraps a fresh machine for daily ML/AI work, plus a small CLI (arkolab) for GitHub profile and workflow automation.",
+      "impact": "Captures notes, tools, and workflows in one place so context follows me across machines instead of living in scattered files.",
+      "image": "/images/project-logos/BASB.png",
+      "logo_text": "BR",
+      "accent": "#1e3a8a",
+      "github_url": "https://github.com/RickArko/BASB",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "Bash",
+        "uv",
+        "Automation"
+      ]
+    },
+    {
+      "id": "goodreads",
+      "title": "GoodReads",
+      "category": "Public build",
+      "engagement_type": "Recommendation prototype",
+      "description": "Learning project using good reads data.",
+      "impact": "A simple public artifact that mirrors my longer-running interest in recommendation and decision support systems.",
+      "image": "/images/project-logos/goodreads.png",
+      "logo_text": "GR",
+      "accent": "#7c2d12",
+      "github_url": "https://github.com/RickArko/GoodReads",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "Recommendation Systems",
+        "Collaborative Filtering",
+        "Content-Based Filtering",
+        "Polars",
+        "Spark"
+      ]
+    },
+    {
+      "id": "kcomrogiii",
+      "title": "ROGII Wellbore Geology Prediction",
+      "category": "Public build",
+      "engagement_type": "Kaggle competition",
+      "description": "Predict True Vertical Thickness (TVT) along horizontal oil-and-gas wellbores from gamma-ray, resistivity, and depth logs. A config-driven pipeline with per-well lag/rolling features, GroupKFold CV, and a physics-aware dip extrapolation feature injected before LightGBM training.",
+      "impact": "Dip-informed LightGBM cut OOF RMSE from ~109 ft to ~15.5 ft — an 86% improvement over the raw ensemble baseline — with reproducible runs, notebook vendoring for Kaggle's notebook-only submission format, and honest carry-forward baselines for comparison.",
+      "image": "/images/project-logos/kcom-rogiii.png",
+      "logo_text": "RG",
+      "accent": "#92400e",
+      "github_url": "https://github.com/RickArko/kcom-rogiii",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "LightGBM",
+        "XGBoost",
+        "CatBoost",
+        "Polars",
+        "Feature Engineering",
+        "Kaggle"
+      ]
+    },
+    {
+      "id": "kcomstoresales",
+      "title": "Store Sales Time Series Forecasting",
+      "category": "Public build",
+      "engagement_type": "Kaggle playground",
+      "description": "Forecast store sales in Ecuador using holiday effects, oil prices, promotional activity, and transaction signals. Benchmarks LightGBM against Nixtla statistical baselines on a config-driven time-series feature pipeline.",
+      "impact": "Side-by-side RMSLE comparison between gradient boosting and Nixtla statsforecast models, with reproducible lag/rolling features and time-based validation splits.",
+      "image": "/images/project-logos/kcom-store-sales.png",
+      "logo_text": "SS",
+      "accent": "#0891b2",
+      "github_url": "https://github.com/RickArko/kcom-store-sales",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "LightGBM",
+        "Nixtla",
+        "Time Series",
+        "Feature Engineering",
+        "Kaggle"
+      ]
+    },
+    {
+      "id": "kcompokemon",
+      "title": "Pokémon TCG AI Battle Challenge",
+      "category": "Public build",
+      "engagement_type": "Kaggle competition agent",
+      "description": "An AI agent for the Kaggle Pokémon TCG AI Battle Challenge using Monte Carlo Tree Search with opponent modeling, effect-damage evaluation, and phase-aware heuristics. The agent builds a 60-card deck and plays the full game through the Simulation Arena.",
+      "impact": "Top agent (exp005) reached 77.1% gauntlet win rate across 480 games using MCTS + opponent classifier + effect-damage parsing, beating benchmark matchups including Dragapult (95%) and Iono (86%).",
+      "image": "/images/project-logos/kcom-pokemon.png",
+      "logo_text": "PK",
+      "accent": "#eab308",
+      "github_url": "https://github.com/RickArko/kcom-pokemon",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "Monte Carlo Tree Search",
+        "Game AI",
+        "Opponent Modeling",
+        "Heuristic Evaluation",
+        "Kaggle"
+      ]
+    }
+  ]
+}

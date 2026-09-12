@@ -1,0 +1,56 @@
+---
+import type { Experience } from "../lib/content";
+import { sortedEmployers } from "../lib/content";
+
+interface Props {
+  experience: Experience;
+}
+
+const { experience } = Astro.props;
+const employers = sortedEmployers(experience);
+---
+
+<section class="section" id="experience">
+  <div class="container">
+    <span class="section__eyebrow">Experience</span>
+    <h2 class="section__title">{experience.summary.title}</h2>
+    <p class="section__lead">
+      Roles where models had to ship, stay up, and earn trust from operators.
+    </p>
+    <div class="exp-list">
+      {
+        employers.map((employer) => (
+          <article class="exp-item">
+            <div class="exp-item__meta">
+              {employer.logo && (
+                <img
+                  class="exp-item__logo"
+                  src={employer.logo}
+                  alt=""
+                  width="42"
+                  height="42"
+                />
+              )}
+              <div class="exp-item__employer">{employer.employer_name}</div>
+              <div>{employer.employer_duration}</div>
+            </div>
+            <div>
+              {employer.roles.map((role) => (
+                <div class="exp-role">
+                  <h3 class="exp-role__title">{role.job_title}</h3>
+                  <div class="exp-role__duration">{role.duration}</div>
+                  <p class="exp-role__headline">{role.headline}</p>
+                  <ul>
+                    {role.highlights.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+---
+import type { Home } from "../lib/content";
+
+interface Props {
+  home: Home;
+}
+
+const { home } = Astro.props;
+const { profile, hero } = home;
+---
+
+<section class="hero section" id="top">
+  <div class="container hero__grid">
+    <div>
+      <p class="section__eyebrow">{hero.eyebrow}</p>
+      <h1 class="hero__name">{profile.name}</h1>
+      <p class="hero__headline">{profile.headline}</p>
+      <p class="hero__tagline">{profile.short_tagline}</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href={hero.primary_cta.href}
+          >{hero.primary_cta.label}</a
+        >
+        <a class="btn btn--ghost" href={hero.secondary_cta.href}
+          >{hero.secondary_cta.label}</a
+        >
+      </div>
+    </div>
+    <img
+      class="hero__portrait"
+      src="/images/profile-image.png"
+      alt={`Portrait of ${profile.name}`}
+      width="680"
+      height="850"
+      fetchpriority="high"
+    />
+  </div>
+</section>

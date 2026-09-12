@@ -1,0 +1,29 @@
+---
+import type { Home } from "../lib/content";
+
+interface Props {
+  home: Home;
+}
+
+const { home } = Astro.props;
+---
+
+<section class="section" id="about">
+  <div class="container">
+    <span class="section__eyebrow">About</span>
+    <h2 class="section__title">Builder / senior IC</h2>
+    <div class="about__copy">
+      {home.about.map((para) => <p>{para}</p>)}
+    </div>
+    <div class="about__grid">
+      {
+        home.wins.map((win) => (
+          <article class="about__card">
+            <h3>{win.title}</h3>
+            <p>{win.impact}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

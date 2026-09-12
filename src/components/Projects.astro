@@ -1,0 +1,77 @@
+---
+import type { Projects } from "../lib/content";
+
+interface Props {
+  projects: Projects;
+}
+
+const { projects } = Astro.props;
+---
+
+<section class="section" id="projects">
+  <div class="container">
+    <span class="section__eyebrow">{projects.summary.eyebrow || "Projects"}</span>
+    <h2 class="section__title">Selected public builds</h2>
+    <p class="section__lead">{projects.summary.title}</p>
+    <div class="project-grid">
+      {
+        projects.projects.map((project) => (
+          <article class="project-card">
+            <div
+              class="project-card__media"
+              style={`--card-accent: ${project.accent}`}
+            >
+              {project.image ? (
+                <img
+                  src={project.image}
+                  alt=""
+                  loading="lazy"
+                  width="800"
+                  height="450"
+                />
+              ) : (
+                <div
+                  class="project-card__placeholder"
+                  style={`background: linear-gradient(135deg, ${project.accent}, transparent)`}
+                >
+                  {project.logo_text || project.id.slice(0, 2).toUpperCase()}
+                </div>
+              )}
+            </div>
+            <div class="project-card__body">
+              <div class="project-card__eyebrow">
+                {[project.category, project.engagement_type]
+                  .filter(Boolean)
+                  .join(" · ")}
+              </div>
+              <h3 class="project-card__title">{project.title}</h3>
+              <p class="project-card__desc">{project.description}</p>
+              <div class="project-card__tech">
+                {project.technologies.slice(0, 5).map((tech) => (
+                  <span class="chip">{tech}</span>
+                ))}
+              </div>
+              <div class="project-card__links">
+                {project.demo_url && (
+                  <a href={project.demo_url} rel="noopener noreferrer">
+                    {project.demo_label || "Demo"}
+                  </a>
+                )}
+                {project.github_url && (
+                  <a href={project.github_url} rel="noopener noreferrer">
+                    GitHub
+                  </a>
+                )}
+                {(project.demo_links || []).map((link) => (
+                  <a href={link.url} rel="noopener noreferrer" title={link.title}>
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

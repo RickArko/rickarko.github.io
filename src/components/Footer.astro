@@ -1,0 +1,18 @@
+---
+interface Props {
+  name: string;
+  year: number;
+}
+
+const { name, year } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p>
+      © {year}
+      {name}. Public builds also live at
+      <a href="https://rickarko.com">rickarko.com</a>.
+    </p>
+  </div>
+</footer>

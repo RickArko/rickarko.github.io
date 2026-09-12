@@ -1,0 +1,49 @@
+---
+import type { Home } from "../lib/content";
+
+interface Props {
+  home: Home;
+}
+
+const { home } = Astro.props;
+const { profile, contact } = home;
+
+function channelHref(channel: Record<string, unknown>): string {
+  if (channel.kind === "email") return `mailto:${profile.email}`;
+  if (channel.url_field === "linkedin_url") return profile.linkedin_url;
+  if (channel.url_field === "github_url") return profile.github_url;
+  return "#";
+}
+---
+
+<section class="section" id="contact">
+  <div class="container">
+    <span class="section__eyebrow">Contact</span>
+    <h2 class="section__title">Let's talk</h2>
+    <div class="contact__panel">
+      <div>
+        <p>{contact.intro}</p>
+        <p>{profile.availability}</p>
+        <a class="btn btn--primary" href={`mailto:${profile.email}`}>
+          {contact.primary_cta_label}
+        </a>
+      </div>
+      <div class="contact__channels">
+        {
+          contact.channels.map((channel) => (
+            <a
+              class="contact__channel"
+              href={channelHref(channel as Record<string, unknown>)}
+              rel={channel.kind === "email" ? undefined : "noopener noreferrer"}
+            >
+              <span>{String(channel.eyebrow || "")}</span>
+              {channel.kind === "email"
+                ? profile.email
+                : String(channel.title || channel.link_label || "")}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

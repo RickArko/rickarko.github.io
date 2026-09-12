@@ -1,0 +1,81 @@
+{
+  "summary": {
+    "eyebrow": "",
+    "title": "Enterprise Experience",
+    "description": ""
+  },
+  "experience": {
+    "1": {
+      "employer_name": "ShipBob",
+      "employer_duration": "February 2022 - May 2026",
+      "logo": "/images/logos/shipbob-logo.jpeg",
+      "roles": [
+        {
+          "job_title": "Data Scientist",
+          "duration": "February 2022 - May 2026",
+          "headline": "Scaled forecasting and operational intelligence across a fast-changing fulfillment network.",
+          "highlights": [
+            "ML platform owner on Databricks / Azure ML Foundry across forecasting, ETA prediction (quantile regression, conformal calibration), classification, outlier detection, and NLP.",
+            "Built ETA prediction (100M+ orders/year) and demand forecasting (1M+ timeseries, weekly) end-to-end.",
+            "Layered in anomaly detection, promotion adjustments, and stock-out corrections to keep forecasts honest under real operating noise.",
+            "Mentored scientists and engineers; translated technical work for product and operations stakeholders."
+          ]
+        }
+      ]
+    },
+    "2": {
+      "employer_name": "Coyote Logistics",
+      "employer_duration": "July 2015 - February 2022",
+      "logo": "/images/logos/coyote-logistics-logo.jpg",
+      "roles": [
+        {
+          "job_title": "Senior Data Scientist",
+          "duration": "June 2021 - February 2022",
+          "headline": "Owned real-time pricing systems where quality and uptime had direct financial consequences.",
+          "highlights": [
+            "Owner of the ML training and reporting pipelines powering BIN, Market Cost, Market Rate",
+            "Led automated tender acceptance and a baseline market-cost service that matched ensemble accuracy on standard orders using only five shipment inputs.",
+            "Built REST services on AKS with batch endpoints and explainability features for human review.",
+            "Interviewed, hired, and mentored as the team grew."
+          ]
+        },
+        {
+          "job_title": "Data Scientist",
+          "duration": "July 2017 - June 2021",
+          "headline": "Delivered pricing and recommendation models that were useful in production, not just accurate offline.",
+          "highlights": [
+            "Deployed pricing models using gradient boosting, quantile regression, and ensembles.",
+            "Tuned recommendation systems for freight matching and demonstrated measurable lift in production.",
+            "Shipped explainability endpoints that translated model behavior into human-readable reasons."
+          ]
+        },
+        {
+          "job_title": "Data Science Analyst",
+          "duration": "July 2015 - August 2017",
+          "headline": "Started in forecasting and experimentation while learning how data products succeed inside real organizations.",
+          "highlights": [
+            "Built enterprise forecasts using ARIMA and ETS across business accounts.",
+            "Automated freight matching workflows in R and Python alongside DBAs, scientists, and engineers.",
+            "Designed and ran A/B tests for recommendation approaches in a live matching application."
+          ]
+        }
+      ]
+    },
+    "3": {
+      "employer_name": "RAR Enabled",
+      "employer_duration": "January 2015 - July 2015",
+      "roles": [
+        {
+          "job_title": "Data Analyst",
+          "duration": "January 2015 - July 2015",
+          "headline": "Applied predictive modeling in a noisy domain where positive outcomes were rare and precision mattered.",
+          "highlights": [
+            "Led model development across debt portfolios in healthcare, utilities, and other domains.",
+            "Built classification and regression models to estimate payment likelihood and expected value in highly imbalanced data.",
+            "Deployed a scoring workflow for incoming placements and tuned collection strategy from the results."
+          ]
+        }
+      ]
+    }
+  }
+}
