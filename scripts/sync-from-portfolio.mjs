@@ -86,6 +86,16 @@ const homeRaw = JSON.parse(
 );
 assertSafeSource(path.join(PORTFOLIO, "src/db/home.json"));
 const { sign_in: _omitSignIn, insights: _omitInsights, ...homeRest } = homeRaw;
+const localHomePath = path.join(ROOT, "src/content/home.json");
+let localToolkit = [];
+if (fs.existsSync(localHomePath)) {
+  try {
+    const localHome = JSON.parse(fs.readFileSync(localHomePath, "utf8"));
+    if (Array.isArray(localHome.toolkit)) localToolkit = localHome.toolkit;
+  } catch {
+    // Pages-only toolkit is optional until home.json exists
+  }
+}
 const home = {
   ...homeRest,
   proof_logos: (homeRaw.proof_logos || []).map((logo) => ({
@@ -97,6 +107,10 @@ const home = {
     primary_cta: { label: "See Experience", href: "#experience" },
     secondary_cta: { label: "Get in Touch", href: "#contact" },
   },
+  // Pages-only curated list; keep local if Portfolio has none
+  toolkit: Array.isArray(homeRaw.toolkit) && homeRaw.toolkit.length
+    ? homeRaw.toolkit
+    : localToolkit,
 };
 
 const experienceRaw = JSON.parse(

@@ -18,13 +18,9 @@ export function sortedEmployers(exp: Experience) {
     .map(([, entry]) => entry);
 }
 
-export function skillGroups(h: Home, p: Projects) {
-  const tech = new Set<string>();
-  for (const project of p.projects) {
-    for (const t of project.technologies) tech.add(t);
-  }
+export function skillGroups(h: Home) {
   return {
     expertise: h.expertise,
-    technologies: [...tech].sort((a, b) => a.localeCompare(b)),
+    technologies: h.toolkit,
   };
 }

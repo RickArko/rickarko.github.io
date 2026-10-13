@@ -26,6 +26,7 @@ npm run build
 
 - Source of truth for bios/projects: `../Portfolio/src/db/*.json` (public)
 - Local copies: `src/content/{home,experience,projects}.json`
+- Toolkit chips: `toolkit` in `src/content/home.json` (hand-selected; sync preserves it)
 - Assets: `public/images/`, `public/downloads/`
 
 Re-sync:

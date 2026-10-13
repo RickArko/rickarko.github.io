@@ -1,14 +1,13 @@
 ---
-import type { Home, Projects } from "../lib/content";
+import type { Home } from "../lib/content";
 import { skillGroups } from "../lib/content";
 
 interface Props {
   home: Home;
-  projects: Projects;
 }
 
-const { home, projects } = Astro.props;
-const skills = skillGroups(home, projects);
+const { home } = Astro.props;
+const skills = skillGroups(home);
 ---
 
 <section class="section" id="skills">
@@ -16,8 +15,7 @@ const skills = skillGroups(home, projects);
     <span class="section__eyebrow">Skills</span>
     <h2 class="section__title">What I reach for</h2>
     <p class="section__lead">
-      Areas of depth from shipped systems, plus the tools that show up across
-      public builds.
+      Areas of depth from shipped systems, plus the tools I reach for most.
     </p>
     <div class="expertise-grid">
       {
