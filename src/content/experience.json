@@ -13,7 +13,7 @@
         {
           "job_title": "Senior Data Scientist",
           "duration": "July 2026 - Present",
-          "headline": "Quantile truckload pricing and the serving path around those models.",
+          "headline": "Quantile truckload, Agentic Engineering and Data best practices leadership.",
           "highlights": [
             "Develop quantile models for truckload pricing using machine learning, statistical inference for predictive shifts and conformal methods for calibration.",
             "Development agentic tooling to speed up scientific experimentation and application development.",
@@ -30,7 +30,7 @@
         {
           "job_title": "Data Scientist",
           "duration": "February 2022 - May 2026",
-          "headline": "Scaled forecasting and operational intelligence across a fast-changing fulfillment network.",
+          "headline": "Owner of ML platform: forecasting, inventory optimization, eta prediction, operational intelligence across a fast-changing fulfillment network.",
           "highlights": [
             "ML platform owner on Databricks / Azure ML Foundry across forecasting, ETA prediction (quantile regression, conformal calibration), classification, outlier detection, and NLP.",
             "Built ETA prediction (100M+ orders/year) and demand forecasting (1M+ timeseries, weekly) end-to-end.",
