@@ -40,6 +40,10 @@
   ],
   "proof_logos": [
     {
+      "name": "Arrive Logistics",
+      "src": "/images/logos/arrive-logistics-logo.jpeg"
+    },
+    {
       "name": "ShipBob",
       "src": "/images/logos/shipbob-logo.jpeg"
     },
