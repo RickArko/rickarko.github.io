@@ -6,6 +6,22 @@
   },
   "experience": {
     "1": {
+      "employer_name": "Arrive Logistics",
+      "employer_duration": "July 2026 - Present",
+      "roles": [
+        {
+          "job_title": "Senior Data Scientist",
+          "duration": "July 2026 - Present",
+          "headline": "Quantile truckload pricing and the serving path around those models.",
+          "highlights": [
+            "Develop quantile models for truckload pricing using machine learning, statistical inference for predictive shifts and conformal methods for calibration.",
+            "Development agentic tooling to speed up scientific experimentation and application development.",
+            "Pioneer tooling for secure DuckDB analytics marts integrated with production Snowflake data, enabling secure real-time analytics applications to improve decision-making and operational efficiency."
+          ]
+        }
+      ]
+    },
+    "2": {
       "employer_name": "ShipBob",
       "employer_duration": "February 2022 - May 2026",
       "logo": "/images/logos/shipbob-logo.jpeg",
@@ -23,7 +39,7 @@
         }
       ]
     },
-    "2": {
+    "3": {
       "employer_name": "Coyote Logistics",
       "employer_duration": "July 2015 - February 2022",
       "logo": "/images/logos/coyote-logistics-logo.jpg",
@@ -61,7 +77,7 @@
         }
       ]
     },
-    "3": {
+    "4": {
       "employer_name": "RAR Enabled",
       "employer_duration": "January 2015 - July 2015",
       "roles": [
