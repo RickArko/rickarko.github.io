@@ -24,7 +24,7 @@ const { projects } = Astro.props;
               {project.image ? (
                 <img
                   src={project.image}
-                  alt=""
+                  alt={project.title}
                   loading="lazy"
                   width="800"
                   height="450"
@@ -46,6 +46,9 @@ const { projects } = Astro.props;
               </div>
               <h3 class="project-card__title">{project.title}</h3>
               <p class="project-card__desc">{project.description}</p>
+              {project.impact && (
+                <p class="project-card__impact">{project.impact}</p>
+              )}
               <div class="project-card__tech">
                 {project.technologies.slice(0, 5).map((tech) => (
                   <span class="chip">{tech}</span>

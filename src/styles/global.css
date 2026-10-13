@@ -380,6 +380,12 @@
   flex: 1;
 }
 
+.project-card__impact {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+}
+
 .project-card__tech {
   display: flex;
   flex-wrap: wrap;

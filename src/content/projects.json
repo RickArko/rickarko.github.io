@@ -6,6 +6,115 @@
   },
   "projects": [
     {
+      "id": "nfl-data",
+      "title": "nfl-data — NFL Sports Warehouse",
+      "category": "Public build",
+      "engagement_type": "Sports warehouse",
+      "description": "SQLite warehouse and projection flywheel for NFL fantasy. Ingests schedules, rosters, stats, injuries, and odds. FFPy and sleeper-brain read the same file. This repo has no product UI.",
+      "impact": "Projections and ADP are computed once and shared, so lineup optimization and league analytics do not each keep their own scrape.",
+      "image": "/images/project-logos/nfl-data.gif",
+      "logo_text": "ND",
+      "accent": "#1e3a5f",
+      "github_url": "https://github.com/RickArko/nfl-data",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "SQLite",
+        "nflverse",
+        "Typer"
+      ]
+    },
+    {
+      "id": "sleeper-brain",
+      "title": "Sleeper Brain — League Draft Help",
+      "category": "Public build",
+      "engagement_type": "League analytics",
+      "description": "Sign in, link a Sleeper username, sync franchises, and run draft strategy on the nfl-data warehouse. FastAPI and Vue, hosted on Fly.",
+      "impact": "Draft help uses the shared projection store and a real Sleeper roster instead of a one-off scrape.",
+      "image": "/images/project-logos/sleeper-brain.gif",
+      "logo_text": "SB",
+      "accent": "#c2410c",
+      "github_url": "https://github.com/RickArko/sleeper-brain",
+      "demo_url": "https://sleeper-brain.fly.dev/",
+      "demo_label": "Live App",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Vue.js",
+        "Supabase",
+        "Fly.io",
+        "nfl-data"
+      ]
+    },
+    {
+      "id": "nfl-survivor",
+      "title": "NFL Survivor — Weekly Pick Pool",
+      "category": "Public build",
+      "engagement_type": "Survivor pool",
+      "description": "Private NFL survivor pool. One team a week, each team once, out on a loss or a tie. The rules page is public. Picks stay hidden until that game's kickoff. Lines imported from nfl-data are informational and do not decide survival.",
+      "impact": "Resolution is a pure function of the stored slate, so a refresh cannot change who is alive.",
+      "image": "/images/project-logos/nfl-survivor.gif",
+      "logo_text": "NS",
+      "accent": "#9a3412",
+      "github_url": "https://github.com/RickArko/nfl-survivor-pool",
+      "demo_url": "https://survivor.rickarko.com",
+      "demo_label": "Live App",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "SQLite",
+        "Fly.io",
+        "nfl-data"
+      ]
+    },
+    {
+      "id": "cfb-data",
+      "title": "cfb-data — College Fantasy Warehouse",
+      "category": "Public build",
+      "engagement_type": "Sports warehouse",
+      "description": "College football fantasy pipeline. Ingests CFBD and ESPN schedules, rosters, and stats, then scores players, projects them, and ranks ADP for FBS or a power-conference subset. cfbfPy serves the warehouse. This repo does not.",
+      "impact": "A rerun skips weeks already in SQLite, so fantasy points, projections, and ADP can be recomputed without spending the API quota again.",
+      "image": "/images/project-logos/cfb-data.gif",
+      "logo_text": "CD",
+      "accent": "#14532d",
+      "github_url": "https://github.com/RickArko/cfb-data",
+      "demo_url": "",
+      "demo_label": "Demo",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "SQLite",
+        "CFBD",
+        "ESPN"
+      ]
+    },
+    {
+      "id": "cfbsicko",
+      "title": "CFB Sicko — College Locks League",
+      "category": "Public build",
+      "engagement_type": "Locks league",
+      "description": "Invite-only college locks league. Lines freeze on Tuesday, each player locks five picks by Thursday evening, and the standings update from that same board. FastAPI and Vue, live at cfbsicko.com.",
+      "impact": "The board and the grader share one frozen number, so a pick cannot drift from the line the league actually played.",
+      "image": "/images/project-logos/cfbsicko.gif",
+      "logo_text": "CS",
+      "accent": "#ea580c",
+      "github_url": "https://github.com/RickArko/cfbsicko",
+      "demo_url": "https://cfbsicko.com",
+      "demo_label": "Live App",
+      "demo_links": [],
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Vue.js",
+        "Supabase",
+        "Fly.io"
+      ]
+    },
+    {
       "id": "cfbfpy",
       "title": "cfbPy — College Football Fantasy Engine",
       "category": "Public build",
@@ -42,13 +151,7 @@
       "github_url": "https://github.com/RickArko/FFPy",
       "demo_url": "https://ffpy-pickem.fly.dev/",
       "demo_label": "Demo",
-      "demo_links": [
-        {
-          "url": "https://sleeper-brain.fly.dev/",
-          "label": "Sleeper League Brain",
-          "title": "Ingests Sleeper fantasy football leagues and provides league manager analytics for decision support"
-        }
-      ],
+      "demo_links": [],
       "technologies": [
         "Python",
         "Streamlit",
@@ -176,30 +279,6 @@
       ]
     },
     {
-      "id": "kcomrogiii",
-      "title": "ROGII Wellbore Geology Prediction",
-      "category": "Public build",
-      "engagement_type": "Kaggle competition",
-      "description": "Predict True Vertical Thickness (TVT) along horizontal oil-and-gas wellbores from gamma-ray, resistivity, and depth logs. A config-driven pipeline with per-well lag/rolling features, GroupKFold CV, and a physics-aware dip extrapolation feature injected before LightGBM training.",
-      "impact": "Dip-informed LightGBM cut OOF RMSE from ~109 ft to ~15.5 ft — an 86% improvement over the raw ensemble baseline — with reproducible runs, notebook vendoring for Kaggle's notebook-only submission format, and honest carry-forward baselines for comparison.",
-      "image": "/images/project-logos/kcom-rogiii.png",
-      "logo_text": "RG",
-      "accent": "#92400e",
-      "github_url": "https://github.com/RickArko/kcom-rogiii",
-      "demo_url": "",
-      "demo_label": "Demo",
-      "demo_links": [],
-      "technologies": [
-        "Python",
-        "LightGBM",
-        "XGBoost",
-        "CatBoost",
-        "Polars",
-        "Feature Engineering",
-        "Kaggle"
-      ]
-    },
-    {
       "id": "kcomstoresales",
       "title": "Store Sales Time Series Forecasting",
       "category": "Public build",
@@ -219,29 +298,6 @@
         "Nixtla",
         "Time Series",
         "Feature Engineering",
-        "Kaggle"
-      ]
-    },
-    {
-      "id": "kcompokemon",
-      "title": "Pokémon TCG AI Battle Challenge",
-      "category": "Public build",
-      "engagement_type": "Kaggle competition agent",
-      "description": "An AI agent for the Kaggle Pokémon TCG AI Battle Challenge using Monte Carlo Tree Search with opponent modeling, effect-damage evaluation, and phase-aware heuristics. The agent builds a 60-card deck and plays the full game through the Simulation Arena.",
-      "impact": "Top agent (exp005) reached 77.1% gauntlet win rate across 480 games using MCTS + opponent classifier + effect-damage parsing, beating benchmark matchups including Dragapult (95%) and Iono (86%).",
-      "image": "/images/project-logos/kcom-pokemon.png",
-      "logo_text": "PK",
-      "accent": "#eab308",
-      "github_url": "https://github.com/RickArko/kcom-pokemon",
-      "demo_url": "",
-      "demo_label": "Demo",
-      "demo_links": [],
-      "technologies": [
-        "Python",
-        "Monte Carlo Tree Search",
-        "Game AI",
-        "Opponent Modeling",
-        "Heuristic Evaluation",
         "Kaggle"
       ]
     }
