@@ -19,6 +19,9 @@ pnpm-debug.log*
 *.key
 credentials.json
 
+# generated browser profile from screenshot runs — never commit
+.brave-shot/
+
 # OS / IDE
 .DS_Store
 .idea/
