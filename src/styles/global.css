@@ -88,7 +88,7 @@
 }
 
 @media (max-width: 820px) {
-  .site-nav__links a:not(.btn):not(.site-nav__keep) {
+  .site-nav__links li:not(.site-nav__keep) {
     display: none;
   }
 }
