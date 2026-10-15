@@ -131,17 +131,17 @@
   ],
   "wins": [
     {
-      "title": "Scaled network forecasting",
+      "title": "Scaled Network Forecasting",
       "impact": "Improved site-level error from 30%+ to under 15% by replacing hundreds of bespoke models with a more scalable ML approach.",
       "summary": "Built forecasting systems that could survive constant network change, new locations, new product launches, and noisy operational data."
     },
     {
-      "title": "Made pricing models more usable",
+      "title": "Made Pricing Models More Usable",
       "impact": "Matched ensemble-level performance using only five common shipment features, making live pricing services far easier to operationalize.",
       "summary": "Focused on practical model design, latency, interpretability, and business continuity in environments where downtime is expensive."
     },
     {
-      "title": "Led through ambiguity",
+      "title": "Led Through Ambiguity",
       "impact": "Helped grow teams, mentor junior talent, and translate technical work into decisions that stakeholders could actually act on.",
       "summary": "Strong projects need more than model quality; they need communication, trust, and systems people can operate."
     }
@@ -186,7 +186,7 @@
       {
         "kind": "link",
         "eyebrow": "LinkedIn",
-        "title": "Professional profile",
+        "title": "Professional Profile",
         "description": "Useful if you want to connect first, share context, or continue the conversation in a more public channel.",
         "link_label": "Visit LinkedIn",
         "url_field": "linkedin_url"
@@ -194,7 +194,7 @@
       {
         "kind": "link",
         "eyebrow": "GitHub",
-        "title": "Code and experiments",
+        "title": "Code and Experiments",
         "description": "Browse public repos, side projects, and the code behind this site.",
         "link_label": "View GitHub",
         "url_field": "github_url"
