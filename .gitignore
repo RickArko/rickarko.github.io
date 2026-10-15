@@ -19,6 +19,13 @@ pnpm-debug.log*
 *.key
 credentials.json
 
+# browser user-data dirs from screenshot / automation runs — never commit
+.brave-shot/
+.chrome-shot/
+.chromium-user-data/
+.playwright-profile/
+.puppeteer-profile/
+
 # OS / IDE
 .DS_Store
 .idea/

@@ -6,10 +6,12 @@
   --ink-muted: #9aa8bd;
   --line: rgba(232, 238, 248, 0.12);
   --accent: #5b8def;
+  --accent-bright: #89adff;
   --accent-soft: rgba(91, 141, 239, 0.14);
   --max: 1120px;
   --prose: 66ch;
   --radius: 10px;
+  --radius-lg: 16px;
   --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --font-body: "Source Sans 3", "Source Sans Pro", system-ui, sans-serif;
   --space-1: 0.5rem;
@@ -18,6 +20,8 @@
   --space-4: 2.5rem;
   --space-5: 4rem;
   --space-6: 6.5rem;
+  --section-pad: clamp(4rem, 9vw, 6.5rem);
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
   --nav-h: 3.75rem;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -45,6 +49,18 @@ body {
     radial-gradient(900px 500px at 100% 0%, rgba(56, 189, 248, 0.08), transparent 50%),
     var(--bg);
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(91, 141, 239, 0.35);
+  color: #f5f9ff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 img {
@@ -60,7 +76,7 @@ a {
 }
 
 a:hover {
-  color: #89adff;
+  color: var(--accent-bright);
 }
 
 h1,
@@ -68,8 +84,9 @@ h2,
 h3 {
   font-family: var(--font-display);
   font-weight: 550;
-  line-height: 1.15;
+  line-height: 1.12;
   letter-spacing: -0.02em;
+  text-wrap: balance;
   margin: 0 0 var(--space-2);
 }
 
@@ -79,42 +96,30 @@ p {
 }
 
 .container {
-  width: min(100% - 2rem, var(--max));
+  width: min(calc(100% - var(--gutter) * 2), var(--max));
   margin-inline: auto;
 }
 
 .section {
-  padding: var(--space-6) 0;
-  border-top: 1px solid var(--line);
-  opacity: 0;
-  transform: translateY(12px);
-  animation: rise 0.7s var(--ease) forwards;
+  padding: var(--section-pad) 0;
 }
 
-.section:nth-of-type(1) {
-  animation-delay: 0.05s;
-}
-.section:nth-of-type(2) {
-  animation-delay: 0.1s;
-}
-.section:nth-of-type(3) {
-  animation-delay: 0.15s;
-}
-.section:nth-of-type(4) {
-  animation-delay: 0.2s;
-}
-.section:nth-of-type(5) {
-  animation-delay: 0.25s;
-}
-.section:nth-of-type(6) {
-  animation-delay: 0.3s;
-}
-.section:nth-of-type(7) {
-  animation-delay: 0.35s;
+.section--compact {
+  padding: clamp(2.75rem, 6vw, 4.5rem) 0;
 }
 
-@keyframes rise {
-  to {
+/* Scroll reveal — screen only, and only when JS marks <html> with .js.
+   Print/PDF and no-JS keep every section fully visible. */
+@media screen {
+  .js .section {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s var(--ease),
+      transform 0.7s var(--ease);
+  }
+
+  .js .section.is-visible {
     opacity: 1;
     transform: none;
   }
@@ -124,7 +129,7 @@ p {
   display: block;
   margin-bottom: var(--space-1);
   font-size: 0.8rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--accent);
   font-family: var(--font-body);
@@ -132,14 +137,16 @@ p {
 }
 
 .section__title {
-  font-size: clamp(1.75rem, 3vw, 2.35rem);
-  max-width: 20ch;
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  max-width: 22ch;
   color: var(--ink);
 }
 
 .section__lead {
   max-width: var(--prose);
   margin-bottom: var(--space-4);
+  font-size: 1.08rem;
+  text-wrap: pretty;
 }
 
 .btn {
@@ -147,17 +154,19 @@ p {
   align-items: center;
   justify-content: center;
   gap: 0.4rem;
-  padding: 0.7rem 1.15rem;
+  min-height: 44px;
+  padding: 0.85rem 1.5rem;
   border-radius: 999px;
   border: 1px solid transparent;
   font: inherit;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 1rem;
   text-decoration: none;
   transition:
     transform 0.2s var(--ease),
     background 0.2s var(--ease),
-    border-color 0.2s var(--ease);
+    border-color 0.2s var(--ease),
+    box-shadow 0.2s var(--ease);
 }
 
 .btn:hover {
@@ -168,11 +177,13 @@ p {
 .btn--primary {
   background: var(--accent);
   color: #081018;
+  box-shadow: 0 10px 30px rgba(91, 141, 239, 0.22);
 }
 
 .btn--primary:hover {
   color: #081018;
-  background: #89adff;
+  background: var(--accent-bright);
+  box-shadow: 0 14px 34px rgba(91, 141, 239, 0.3);
 }
 
 .btn--ghost {
@@ -202,10 +213,10 @@ p {
   html {
     scroll-behavior: auto;
   }
-  .section {
+  .js .section {
     opacity: 1;
     transform: none;
-    animation: none;
+    transition: none;
   }
   .btn {
     transition: none;

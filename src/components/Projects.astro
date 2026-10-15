@@ -8,15 +8,20 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<section class="section" id="projects">
+<section class="section section--alt" id="projects">
   <div class="container">
     <span class="section__eyebrow">{projects.summary.eyebrow || "Projects"}</span>
-    <h2 class="section__title">Selected public builds</h2>
+    <h2 class="section__title">Selected Public Builds</h2>
     <p class="section__lead">{projects.summary.title}</p>
     <div class="project-grid">
       {
-        projects.projects.map((project) => (
-          <article class="project-card">
+        projects.projects.map((project, index) => (
+          <article
+            class:list={[
+              "project-card",
+              index === 0 && "project-card--featured",
+            ]}
+          >
             <div
               class="project-card__media"
               style={`--card-accent: ${project.accent}`}
@@ -25,7 +30,7 @@ const { projects } = Astro.props;
                 <img
                   src={project.image}
                   alt={project.title}
-                  loading="lazy"
+                  loading={index === 0 ? "eager" : "lazy"}
                   width="800"
                   height="450"
                 />
@@ -49,27 +54,29 @@ const { projects } = Astro.props;
               {project.impact && (
                 <p class="project-card__impact">{project.impact}</p>
               )}
-              <div class="project-card__tech">
-                {project.technologies.slice(0, 5).map((tech) => (
-                  <span class="chip">{tech}</span>
-                ))}
-              </div>
-              <div class="project-card__links">
-                {project.demo_url && (
-                  <a href={project.demo_url} rel="noopener noreferrer">
-                    {project.demo_label || "Demo"}
-                  </a>
-                )}
-                {project.github_url && (
-                  <a href={project.github_url} rel="noopener noreferrer">
-                    GitHub
-                  </a>
-                )}
-                {(project.demo_links || []).map((link) => (
-                  <a href={link.url} rel="noopener noreferrer" title={link.title}>
-                    {link.label}
-                  </a>
-                ))}
+              <div class="project-card__footer">
+                <div class="project-card__tech">
+                  {project.technologies.slice(0, 5).map((tech) => (
+                    <span class="chip">{tech}</span>
+                  ))}
+                </div>
+                <div class="project-card__links">
+                  {project.demo_url && (
+                    <a href={project.demo_url} rel="noopener noreferrer">
+                      {project.demo_label || "Demo"}
+                    </a>
+                  )}
+                  {project.github_url && (
+                    <a href={project.github_url} rel="noopener noreferrer">
+                      GitHub
+                    </a>
+                  )}
+                  {(project.demo_links || []).map((link) => (
+                    <a href={link.url} rel="noopener noreferrer" title={link.title}>
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
               </div>
             </div>
           </article>

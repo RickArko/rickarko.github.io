@@ -26,12 +26,35 @@ Primary site remains https://rickarko.com (separate Flask/App Runner repo).
    GIFs before commit. `npm run check` enforces this.
 6. **Positioning.** Builder / senior IC language. Flag Founder / Head-of /
    VP inflation. One controlled availability line — no stacked job-begging.
+7. **Public repo = published forever.** Never commit browser profiles,
+   screenshot user-data dirs, or telemetry. Forbidden: `.brave-shot/`,
+   `.chrome-shot/`, `.chromium-user-data/`, `.playwright-profile/`,
+   `.puppeteer-profile/`, and files named `Local State`,
+   `TransportSecurity`, `Network Persistent State`, `Cookies`,
+   `Login Data`. Screenshots belong in `public/` only as compressed
+   images — never the browser that captured them. `npm run check:privacy`
+   fails the gate if any of these are tracked.
+
+   If a leak lands on a public branch:
+   - Deleting the files in a later commit is **not** a scrub. The blobs
+     stay in git history and on GitHub.
+   - Do **not** merge those commits onto `main` as-is. Squash-merge only
+     after HEAD no longer contains the files, then delete the remote
+     topic branch.
+   - To purge history, rewrite with `git filter-repo` (or BFG), force-push
+     every branch that contained the files (user must authorize
+     `--force-with-lease`), and ask GitHub Support to clear cached
+     objects. Anyone who cloned the branch should delete it and re-clone.
+   - Review comments and PR diffs can still hold the leaked bytes after
+     a rewrite. Treat those identifiers as public; do not paste profile
+     JSON into issues or chat.
 
 ## Commands
 
 ```bash
 npm run sync:portfolio   # allowlisted import from ../Portfolio
-npm run check            # astro check + content validate + asset size gate
+npm run check            # content + assets + privacy + astro check
+npm run check:privacy    # fail if browser-profile files are tracked
 npm run build
 npm run preview
 npm run dev

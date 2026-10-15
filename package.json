@@ -13,8 +13,9 @@
     "sync:portfolio": "node scripts/sync-from-portfolio.mjs",
     "check:assets": "node scripts/check-assets.mjs",
     "check:content": "node scripts/validate-content.mjs",
-    "check": "npm run check:content && npm run check:assets && astro check",
-    "prebuild": "npm run check:content && npm run check:assets"
+    "check:privacy": "node scripts/check-privacy.mjs",
+    "check": "npm run check:content && npm run check:assets && npm run check:privacy && astro check",
+    "prebuild": "npm run check:content && npm run check:assets && npm run check:privacy"
   },
   "dependencies": {
     "astro": "^7.3.2",

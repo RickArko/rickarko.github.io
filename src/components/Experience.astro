@@ -8,6 +8,15 @@ interface Props {
 
 const { experience } = Astro.props;
 const employers = sortedEmployers(experience);
+
+function monogram(name: string): string {
+  return name
+    .split(/\s+/)
+    .map((word) => word[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
 ---
 
 <section class="section" id="experience">
@@ -21,24 +30,38 @@ const employers = sortedEmployers(experience);
       {
         employers.map((employer) => (
           <article class="exp-item">
-            <div class="exp-item__meta">
-              {employer.logo && (
+            <div class="exp-item__rail">
+              {employer.logo ? (
                 <img
                   class="exp-item__logo"
                   src={employer.logo}
-                  alt={employer.employer_name}
-                  width="42"
-                  height="42"
+                  alt=""
+                  width="56"
+                  height="56"
+                  loading="lazy"
                 />
+              ) : (
+                <span
+                  class="exp-item__logo exp-item__logo--mono"
+                  aria-hidden="true"
+                >
+                  {monogram(employer.employer_name)}
+                </span>
               )}
-              <div class="exp-item__employer">{employer.employer_name}</div>
-              <div>{employer.employer_duration}</div>
             </div>
-            <div>
+            <div class="exp-item__body">
+              <header class="exp-item__header">
+                <h3 class="exp-item__employer">{employer.employer_name}</h3>
+                <span class="exp-item__duration">
+                  {employer.employer_duration}
+                </span>
+              </header>
               {employer.roles.map((role) => (
                 <div class="exp-role">
-                  <h3 class="exp-role__title">{role.job_title}</h3>
-                  <div class="exp-role__duration">{role.duration}</div>
+                  <div class="exp-role__row">
+                    <h4 class="exp-role__title">{role.job_title}</h4>
+                    <span class="exp-role__duration">{role.duration}</span>
+                  </div>
                   <p class="exp-role__headline">{role.headline}</p>
                   <ul>
                     {role.highlights.map((item) => (

@@ -5,12 +5,12 @@ interface Props {
 
 const { name } = Astro.props;
 
-const links = [
+const links: { href: string; label: string; keep?: boolean }[] = [
   { href: "#about", label: "About" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#contact", label: "Contact" },
+  { href: "#contact", label: "Contact", keep: true },
 ];
 ---
 
@@ -21,12 +21,12 @@ const links = [
       <ul class="site-nav__links">
         {
           links.map((link) => (
-            <li>
+            <li class:list={[link.keep && "site-nav__keep"]}>
               <a href={link.href}>{link.label}</a>
             </li>
           ))
         }
-        <li>
+        <li class="site-nav__keep">
           <a
             class="btn btn--ghost site-nav__resume"
             href="/downloads/resume-generic-media.pdf"

@@ -8,12 +8,24 @@ interface Props {
 const { home } = Astro.props;
 ---
 
-<section class="section" id="about">
+<section class="section section--alt" id="about">
   <div class="container">
-    <span class="section__eyebrow">About</span>
-    <h2 class="section__title">Builder / senior IC</h2>
-    <div class="about__copy">
-      {home.about.map((para) => <p>{para}</p>)}
+    <div class="about__header">
+      <img
+        class="about__portrait"
+        src="/images/profile-image.png"
+        alt={`Portrait of ${home.profile.name}`}
+        width="480"
+        height="600"
+        loading="lazy"
+      />
+      <div class="about__intro">
+        <span class="section__eyebrow">About</span>
+        <h2 class="section__title">Builder / Senior IC</h2>
+        <div class="about__copy">
+          {home.about.map((para) => <p>{para}</p>)}
+        </div>
+      </div>
     </div>
     <div class="about__grid">
       {

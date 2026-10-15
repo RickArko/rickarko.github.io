@@ -10,8 +10,8 @@ const { profile, hero } = home;
 ---
 
 <section class="hero section" id="top">
-  <div class="container hero__grid">
-    <div>
+  <div class="container hero__inner">
+    <div class="hero__copy">
       <p class="section__eyebrow">{hero.eyebrow}</p>
       <h1 class="hero__name">{profile.name}</h1>
       <p class="hero__headline">{profile.headline}</p>
@@ -25,13 +25,19 @@ const { profile, hero } = home;
         >
       </div>
     </div>
-    <img
-      class="hero__portrait"
-      src="/images/profile-image.png"
-      alt={`Portrait of ${profile.name}`}
-      width="680"
-      height="850"
-      fetchpriority="high"
-    />
+    {
+      home.proof_logos.length > 0 && (
+        <div class="hero__proof" aria-label="Employers">
+          <div class="hero__logos">
+            {home.proof_logos.map((logo) => (
+              <span class="hero__logo">
+                <img src={logo.src} alt="" height="40" loading="eager" />
+                <span class="hero__logo-name">{logo.name}</span>
+              </span>
+            ))}
+          </div>
+        </div>
+      )
+    }
   </div>
 </section>

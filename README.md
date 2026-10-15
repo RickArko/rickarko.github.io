@@ -18,7 +18,7 @@ npm run dev
 ## Quality gate
 
 ```bash
-npm run check   # astro check + Zod content + ≤2048 KB assets
+npm run check   # content + assets + privacy + astro check
 npm run build
 ```
 
