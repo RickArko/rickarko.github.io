@@ -39,3 +39,12 @@ npm run sync:portfolio
 
 Push to `main`. GitHub Actions builds and deploys to Pages.
 Repo must be named `RickArko.github.io` for the user site URL.
+
+
+## Update Resume
+
+```bash
+cp /path/to/resume-with-arrive.pdf public/downloads/resume-generic-media.pdf
+cp public/downloads/resume-generic-media.pdf ../Portfolio/src/static/downloads/resume-generic-media.pdf
+# optional: same for resume-no-media.pdf if you have that variant
+```
