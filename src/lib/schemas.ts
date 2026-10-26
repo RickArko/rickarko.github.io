@@ -37,7 +37,7 @@ export const homeSchema = z.object({
     }),
   ),
   about: z.array(z.string()).min(1),
-  toolkit: z.array(z.string()).min(1),
+  toolkit: z.array(z.string()),
   services: z.array(
     z.object({
       title: z.string(),

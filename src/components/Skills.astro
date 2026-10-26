@@ -27,15 +27,17 @@ const skills = skillGroups(home);
         ))
       }
     </div>
-    <div class="skills-block">
-      <h3>Toolkit</h3>
-      <div class="skills-block__chips">
-        {
-          skills.technologies.map((tech) => (
-            <span class="chip">{tech}</span>
-          ))
-        }
-      </div>
-    </div>
+    {
+      skills.technologies.length > 0 && (
+        <div class="skills-block">
+          <h3>Toolkit</h3>
+          <div class="skills-block__chips">
+            {skills.technologies.map((tech) => (
+              <span class="chip">{tech}</span>
+            ))}
+          </div>
+        </div>
+      )
+    }
   </div>
 </section>

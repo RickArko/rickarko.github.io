@@ -30,7 +30,7 @@ const homeSchema = z.object({
   }),
   stats: z.array(z.object({ value: z.string(), label: z.string() })),
   about: z.array(z.string()).min(1),
-  toolkit: z.array(z.string()).min(1),
+  toolkit: z.array(z.string()),
   expertise: z.array(z.object({ title: z.string(), description: z.string() })),
   wins: z.array(
     z.object({ title: z.string(), impact: z.string(), summary: z.string() }),
