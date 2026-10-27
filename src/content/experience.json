@@ -16,7 +16,7 @@
           "headline": "Quantile truckload, Agentic Engineering and Data best practices leadership.",
           "highlights": [
             "Develop quantile models for truckload pricing using machine learning, statistical inference for predictive shifts and conformal methods for calibration.",
-            "Development agentic tooling to speed up scientific experimentation and application development.",
+            "Develop agentic tooling to speed up scientific experimentation and application development.",
             "Pioneer tooling for secure DuckDB analytics marts integrated with production Snowflake data, enabling secure real-time analytics applications to improve decision-making and operational efficiency."
           ]
         }
