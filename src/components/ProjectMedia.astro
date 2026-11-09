@@ -42,17 +42,31 @@ const Figure = project.figure ? figures[project.figure] : null;
           <Figure />
         </div>
       ) : project.video ? (
-        <video
-          muted
-          loop
-          playsinline
-          preload="none"
-          poster={project.image}
-          aria-label={alt}
-          data-autoplay
-        >
-          <source src={project.video} type="video/mp4" />
-        </video>
+        <>
+          <video
+            muted
+            loop
+            playsinline
+            preload="none"
+            poster={project.image}
+            aria-label={alt}
+            data-autoplay
+          >
+            <source src={project.video} type="video/mp4" />
+          </video>
+          {/* Shown by the BaseLayout script; without JS the poster stays still. */}
+          <button
+            type="button"
+            class="frame__toggle"
+            data-video-toggle
+            data-title={project.title}
+            aria-label={`Play ${project.title} video`}
+            hidden
+          >
+            <span class="frame__toggle-play"><Icon name="play" /></span>
+            <span class="frame__toggle-pause"><Icon name="pause" /></span>
+          </button>
+        </>
       ) : project.image ? (
         <img
           src={project.image}

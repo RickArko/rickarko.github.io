@@ -1,7 +1,7 @@
 ---
 /** Small inline icon set. Icons are decorative; label the parent link. */
 interface Props {
-  name: "github" | "linkedin" | "external" | "lock" | "mail" | "download";
+  name: "github" | "linkedin" | "external" | "lock" | "mail" | "download" | "play" | "pause";
 }
 
 const { name } = Astro.props;
@@ -47,6 +47,21 @@ const { name } = Astro.props;
   name === "download" && (
     <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
       <path d="M8 2.5v8M4.5 7 8 10.5 11.5 7M3 13.5h10" />
+    </svg>
+  )
+}
+{
+  name === "play" && (
+    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+      <path d="M5 3.2v9.6a.6.6 0 0 0 .92.5l7.5-4.8a.6.6 0 0 0 0-1L5.92 2.7a.6.6 0 0 0-.92.5Z" />
+    </svg>
+  )
+}
+{
+  name === "pause" && (
+    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" focusable="false">
+      <rect x="3.5" y="3" width="3" height="10" rx=".8" />
+      <rect x="9.5" y="3" width="3" height="10" rx=".8" />
     </svg>
   )
 }

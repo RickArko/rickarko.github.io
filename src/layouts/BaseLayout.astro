@@ -68,29 +68,59 @@ const jsonLd = {
     <a class="skip-link" href="#main">Skip to content</a>
     <slot />
     <script is:inline>
-      // Play project recordings only while visible, and never for
-      // reduced-motion users (they keep the poster frame).
+      // Project recordings play only while on screen. Each one has a
+      // play/pause button (WCAG 2.2.2), and a pause holds until the viewer
+      // presses play again. Reduced-motion viewers start held on the poster.
       (function () {
         var videos = document.querySelectorAll("video[data-autoplay]");
         if (!videos.length) return;
-        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-        if (!("IntersectionObserver" in window)) return;
-        var io = new IntersectionObserver(
-          function (entries) {
-            entries.forEach(function (entry) {
-              var v = entry.target;
-              if (entry.isIntersecting) {
-                var p = v.play();
-                if (p && p.catch) p.catch(function () {});
+        var held = new Set();
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        function play(v) {
+          var p = v.play();
+          if (p && p.catch) p.catch(function () {});
+        }
+
+        var io =
+          "IntersectionObserver" in window
+            ? new IntersectionObserver(
+                function (entries) {
+                  entries.forEach(function (entry) {
+                    var v = entry.target;
+                    if (!entry.isIntersecting) v.pause();
+                    else if (!held.has(v)) play(v);
+                  });
+                },
+                { threshold: 0.35 }
+              )
+            : null;
+
+        videos.forEach(function (v) {
+          var button = v.parentElement.querySelector("[data-video-toggle]");
+          if (reduce || !io) held.add(v);
+          if (button) {
+            var title = button.getAttribute("data-title");
+            var sync = function () {
+              var playing = !v.paused;
+              button.setAttribute("data-playing", String(playing));
+              button.setAttribute("aria-label", (playing ? "Pause " : "Play ") + title + " video");
+            };
+            v.addEventListener("play", sync);
+            v.addEventListener("pause", sync);
+            button.addEventListener("click", function () {
+              if (v.paused) {
+                held.delete(v);
+                play(v);
               } else {
+                held.add(v);
                 v.pause();
               }
             });
-          },
-          { threshold: 0.35 }
-        );
-        videos.forEach(function (v) {
-          io.observe(v);
+            sync();
+            button.hidden = false;
+          }
+          if (io) io.observe(v);
         });
       })();
     </script>
