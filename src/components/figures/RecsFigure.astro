@@ -1,0 +1,38 @@
+---
+/** NDCG@10 results from RickArko/GoodReads README (500 users, seed 42). */
+const rows = [
+  { label: "Collaborative KNN", value: 0.333, key: true },
+  { label: "Hybrid, 70/30", value: 0.271 },
+  { label: "Hybrid, 60/40", value: 0.228 },
+  { label: "Content KNN", value: 0.01 },
+];
+const X0 = 136;
+const SCALE = 196 / 0.333;
+const ROW_Y = [44, 88, 132, 176];
+const BAR_H = 28;
+---
+
+<svg viewBox="0 0 400 250" role="presentation" aria-hidden="true" focusable="false">
+  <text class="fig-head" x="14" y="26">NDCG@10 on 500 held-out users</text>
+  <line x1={X0} x2={X0} y1="38" y2="210" style="stroke:var(--line-strong)"></line>
+
+  {
+    rows.map((row, i) => {
+      const w = Math.max(3, row.value * SCALE);
+      const y = ROW_Y[i];
+      return (
+        <g>
+          <text class="fig-sub" x="14" y={y + 19} style={row.key ? "fill:var(--ink)" : undefined}>
+            {row.label}
+          </text>
+          <rect class:list={["fig-bar", row.key && "fig-bar--key"]} x={X0} y={y} width={w.toFixed(1)} height={BAR_H} rx="3" />
+          <text class="fig-value" x={(X0 + w + 8).toFixed(1)} y={y + 19}>
+            {row.value.toFixed(3)}
+          </text>
+        </g>
+      );
+    })
+  }
+
+  <text class="fig-sub" x="14" y="236">UCSD Goodreads, 228M user-book interactions</text>
+</svg>

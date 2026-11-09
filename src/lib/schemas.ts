@@ -10,19 +10,19 @@ export const homeSchema = z.object({
     name: z.string(),
     headline: z.string(),
     short_tagline: z.string(),
-    email: z.string().email(),
-    linkedin_url: z.string().url(),
-    github_url: z.string().url(),
+    current_role: z.string().optional(),
+    email: z.email(),
+    linkedin_url: z.url(),
+    github_url: z.url(),
     medium_url: z.string().optional(),
+    resume_url: z.string(),
     availability: z.string(),
     location: z.string(),
   }),
   hero: z.object({
-    eyebrow: z.string(),
-    headline: z.string(),
-    subheadline: z.string().optional(),
     primary_cta: ctaSchema,
     secondary_cta: ctaSchema,
+    chart_caption: z.string().optional(),
   }),
   stats: z.array(
     z.object({
@@ -37,39 +37,30 @@ export const homeSchema = z.object({
     }),
   ),
   about: z.array(z.string()).min(1),
-  toolkit: z.array(z.string()),
-  services: z.array(
+  facts: z
+    .array(
+      z.object({
+        label: z.string(),
+        value: z.string(),
+      }),
+    )
+    .default([]),
+  toolkit: z.array(
     z.object({
-      title: z.string(),
-      description: z.string(),
-      icon: z.string().optional(),
-    }),
-  ),
-  expertise: z.array(
-    z.object({
-      title: z.string(),
-      description: z.string(),
-    }),
-  ),
-  wins: z.array(
-    z.object({
-      title: z.string(),
-      impact: z.string(),
-      summary: z.string(),
-    }),
-  ),
-  engagements: z.array(
-    z.object({
-      title: z.string(),
-      description: z.string(),
+      label: z.string(),
+      items: z.array(z.string()).min(1),
     }),
   ),
   contact: z.object({
     intro: z.string(),
     primary_cta_label: z.string(),
-    fit_eyebrow: z.string().optional(),
-    channels: z.array(z.record(z.string(), z.unknown())),
   }),
+  seo: z
+    .object({
+      meta_title: z.string(),
+      meta_description: z.string(),
+    })
+    .optional(),
 });
 
 const roleSchema = z.object({
@@ -90,6 +81,7 @@ export const experienceSchema = z.object({
     z.object({
       employer_name: z.string(),
       employer_duration: z.string(),
+      location: z.string().optional(),
       logo: z.string().optional(),
       roles: z.array(roleSchema).min(1),
     }),
@@ -98,17 +90,30 @@ export const experienceSchema = z.object({
 
 export const projectSchema = z.object({
   id: z.string(),
+  /** featured: large rows; grid: cards; more: compact text list. */
+  tier: z.enum(["featured", "grid", "more"]).default("grid"),
   title: z.string(),
-  category: z.string(),
-  engagement_type: z.string(),
+  tagline: z.string().optional(),
   description: z.string(),
-  impact: z.string(),
-  image: z.string(),
-  logo_text: z.string(),
-  accent: z.string(),
+  impact: z.string().default(""),
+  engineering: z.string().optional(),
+  /** Still image, or the poster frame when `video` is set. */
+  image: z.string().default(""),
+  video: z.string().optional(),
+  /** Inline SVG figure rendered instead of an image. */
+  figure: z.enum(["platform", "agent", "recs"]).optional(),
+  /** "browser" wraps the media in a browser bar showing the demo domain. */
+  frame: z.enum(["browser", "plain"]).default("plain"),
+  alt: z.string().optional(),
   github_url: z.string(),
   demo_url: z.string(),
   demo_label: z.string().optional(),
+  technologies: z.array(z.string()),
+  // Legacy fields still emitted by sync-from-portfolio; not rendered.
+  category: z.string().optional(),
+  engagement_type: z.string().optional(),
+  logo_text: z.string().optional(),
+  accent: z.string().optional(),
   demo_links: z
     .array(
       z.object({
@@ -118,7 +123,6 @@ export const projectSchema = z.object({
       }),
     )
     .optional(),
-  technologies: z.array(z.string()),
 });
 
 export const projectsSchema = z.object({

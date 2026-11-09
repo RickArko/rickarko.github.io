@@ -107,10 +107,8 @@ const home = {
     primary_cta: { label: "See Experience", href: "#experience" },
     secondary_cta: { label: "Get in Touch", href: "#contact" },
   },
-  // Pages-only curated list; keep local if Portfolio has none
-  toolkit: Array.isArray(homeRaw.toolkit) && homeRaw.toolkit.length
-    ? homeRaw.toolkit
-    : localToolkit,
+  // Pages-only curated, grouped list ({ label, items }[]); always keep local.
+  toolkit: localToolkit,
 };
 
 const experienceRaw = JSON.parse(
@@ -180,10 +178,7 @@ copyFile(
   path.join(PORTFOLIO, "src/static/images/profile-image.png"),
   path.join(ROOT, "public/images/profile-image.png"),
 );
-copyFile(
-  path.join(PORTFOLIO, "src/static/favicon.ico"),
-  path.join(ROOT, "public/favicon.ico"),
-);
+// favicon.ico / favicon.svg / og.png are Pages-owned; not synced.
 copyFile(
   path.join(PORTFOLIO, "src/static/images/logos/shipbob-logo.jpeg"),
   path.join(ROOT, "public/images/logos/shipbob-logo.jpeg"),

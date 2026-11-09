@@ -1,0 +1,37 @@
+---
+import type { Project } from "../lib/content";
+import Icon from "./Icon.astro";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<ul class="project__links">
+  {
+    project.demo_url && (
+      <li>
+        <a href={project.demo_url} rel="noopener">
+          {project.demo_label ?? "Live app"}
+          <Icon name="external" />
+          <span class="visually-hidden">({project.title})</span>
+        </a>
+      </li>
+    )
+  }
+  {
+    project.github_url ? (
+      <li>
+        <a href={project.github_url} rel="noopener">
+          <Icon name="github" />
+          Source
+          <span class="visually-hidden">({project.title})</span>
+        </a>
+      </li>
+    ) : (
+      <li class="project__private">Private repo</li>
+    )
+  }
+</ul>

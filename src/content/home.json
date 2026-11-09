@@ -1,41 +1,40 @@
 {
   "profile": {
     "name": "Rick Arko",
-    "headline": "Data Scientist, Machine Learning Engineer, AI Builder",
-    "short_tagline": "I build scientific solutions that scale responsibly.",
+    "headline": "Senior Data Scientist and ML Engineer",
+    "short_tagline": "I build probabilistic machine learning systems and own them in production: freight pricing, delivery-time prediction, and demand forecasting for logistics companies. Lately I also build the agentic tooling that helps data science teams ship.",
+    "current_role": "Currently a Senior Data Scientist at Arrive Logistics in Chicago, working on quantile pricing for truckload freight.",
     "email": "rickarko@pm.me",
     "linkedin_url": "https://www.linkedin.com/in/rickarko",
     "github_url": "https://github.com/RickArko",
     "medium_url": "https://medium.com/@rickarko/",
-    "availability": "Senior IC Roles, Team Building, Project Contracts and Consulting.",
-    "location": "United States"
+    "resume_url": "/downloads/resume-generic-media.pdf",
+    "availability": "I'm open to senior IC roles in applied ML, data, and AI engineering, and to scoped consulting work.",
+    "location": "Chicago, IL"
   },
   "hero": {
-    "eyebrow": "Decision Intelligence that Scales",
-    "headline": "Data (Science) | ML | AI | Python Engineering",
-    "subheadline": "",
     "primary_cta": {
-      "label": "See Experience",
-      "href": "#experience"
+      "label": "View projects",
+      "href": "#projects"
     },
     "secondary_cta": {
-      "label": "Get in Touch",
-      "href": "#contact"
+      "label": "Resume (PDF)",
+      "href": "/downloads/resume-generic-media.pdf"
     },
-    "highlights": []
+    "chart_caption": "A quantile forecast with calibrated P10–P90 bands. Illustrative data."
   },
   "stats": [
     {
-      "value": "10+",
-      "label": "years building applied ML in production"
-    },
-    {
       "value": "100M+",
-      "label": "orders processed with probabilistic ML ETA service."
+      "label": "orders a year scored by the delivery-time models I built at ShipBob"
     },
     {
       "value": "1M+",
-      "label": "weekly ML/Statistical forecasts."
+      "label": "demand forecasts generated every week"
+    },
+    {
+      "value": "30% → 15%",
+      "label": "daily forecast error after replacing hundreds of site-level models"
     }
   ],
   "proof_logos": [
@@ -53,164 +52,98 @@
     }
   ],
   "about": [
-    "I am an applied machine learning builder with a hands-on background in forecasting, pricing, recommendation systems, and production data products. Most of my work has lived in environments where reliability, clarity, and operational usefulness matter more than hype.",
-    "I enjoy turning ambiguous business problems into systems that actually ship. That can mean designing a grounded LLM workflow, improving an existing model stack, building better evaluation loops, or helping a team move from prototype thinking to dependable production behavior.",
-    "I do my best work close to the systems, close to the stakeholders, and focused on outcomes that hold up in production."
+    "I'm a data scientist and ML engineer with over ten years in logistics. At Coyote Logistics I worked on real-time freight pricing and load matching. At ShipBob I owned the ML platform behind demand forecasting, delivery-time prediction, and inventory planning. Today I work on truckload pricing at Arrive Logistics.",
+    "Most of my work is probabilistic: quantile regression, conformal calibration, and forecasting at scale, plus the backtests and simulations that show a model is better before it ships. I take models the whole way, from SQL and feature pipelines to FastAPI services, Docker, and the apps people use to make decisions.",
+    "Outside work I build complete products on the same stack, from open-source forecasting benchmarks to a live crypto research app and a sports data platform behind several deployed apps."
   ],
-  "services": [
+  "facts": [
     {
-      "title": "Applied AI/Agentic Workflows",
-      "icon": "fa-solid fa-robot",
-      "description": "Reproducible, auditable agentic workflows - with visibility and control by design."
+      "label": "Based in",
+      "value": "Chicago, IL"
     },
     {
-      "title": "Production Machine Learning",
-      "icon": "fa-solid fa-chart-line",
-      "description": "Forecasting, pricing, recommendation, decision engines, scoring, and optimization engines. Built for enterprise use: reproducible, interpretable, and with measured impact."
+      "label": "Education",
+      "value": "BA, Economics and Mathematics, Lake Forest College"
     },
     {
-      "title": "Decision Infrastructure",
-      "icon": "fa-solid fa-diagram-project",
-      "description": "The wisdom to understand requirements vs. hype: how to scale services from day one with an improvable, maintainable - operational harness, by design."
-    },
-    {
-      "title": "Technical Leadership",
-      "icon": "fa-solid fa-people-group",
-      "description": "Designed scalable hiring strategies with well-thought, OSS-isomorphic case studies that unlock essential predictive services — responsible team builder, mentor, and mentee."
+      "label": "Recognition",
+      "value": "2nd place, ShipBob AI Hackathon, December 2025"
     }
   ],
-  "engagement_summary": "",
   "toolkit": [
-    "Python",
-    "Bash",
-    "SQL",
-    "LightGBM",
-    "CatBoost",
-    "Claude Code",
-    "Cursor",
-    "Codex",
-    "Open Code",
-    "Polars",
-    "FastAPI",
-    "Streamlit",
-    "DuckDB",
-    "SQLite",
-    "Redis",
-    "PostgreSQL",
-    "MongoDB",
-    "Snowflake",
-    "Databricks",
-    "Azure ML",
-    "Docker",
-    "Nixtla",
-    "PySpark",
-    "AWS",
-    "Supabase",
-    "Vite",
-    "React.js",
-    "Terraform",
-    "Vue.js"
-  ],
-  "expertise": [
     {
-      "title": "LLM Systems",
-      "description": "Retrieval-augmented generation, prompt workflows, source-grounded answers, evaluation loops, and internal copilots."
+      "label": "Languages",
+      "items": ["Python", "SQL", "Bash", "TypeScript", "R"]
     },
     {
-      "title": "Production Machine Learning",
-      "description": "Forecasting, regression, classification, recommendation, anomaly detection, and experimentation in real operating environments."
+      "label": "Modeling",
+      "items": [
+        "LightGBM",
+        "XGBoost",
+        "CatBoost",
+        "scikit-learn",
+        "PyTorch",
+        "Nixtla",
+        "Optuna",
+        "SHAP",
+        "Quantile regression",
+        "Conformal prediction",
+        "Hierarchical reconciliation"
+      ]
     },
     {
-      "title": "Decision Infrastructure",
-      "description": "Pricing services, operational planning tools, automation pipelines, and data products that have to support live business decisions."
+      "label": "Data",
+      "items": [
+        "Polars",
+        "pandas",
+        "DuckDB",
+        "PySpark",
+        "Snowflake",
+        "Databricks",
+        "PostgreSQL",
+        "SQLite",
+        "Redis",
+        "MongoDB"
+      ]
     },
     {
-      "title": "Technical Translation",
-      "description": "Bridging product, engineering, operators, analysts, and leadership so complex systems stay usable, trusted, and aligned with the business."
-    }
-  ],
-  "wins": [
-    {
-      "title": "Scaled Network Forecasting",
-      "impact": "Improved site-level error from 30%+ to under 15% by replacing hundreds of bespoke models with a more scalable ML approach.",
-      "summary": "Built forecasting systems that could survive constant network change, new locations, new product launches, and noisy operational data."
+      "label": "Services and infrastructure",
+      "items": [
+        "FastAPI",
+        "Docker",
+        "Terraform",
+        "MLflow",
+        "Azure ML",
+        "AWS",
+        "Fly.io",
+        "Supabase",
+        "GitHub Actions"
+      ]
     },
     {
-      "title": "Made Pricing Models More Usable",
-      "impact": "Matched ensemble-level performance using only five common shipment features, making live pricing services far easier to operationalize.",
-      "summary": "Focused on practical model design, latency, interpretability, and business continuity in environments where downtime is expensive."
+      "label": "Interfaces",
+      "items": ["Streamlit", "Vue.js", "React", "Vite", "Plotly Dash"]
     },
     {
-      "title": "Led Through Ambiguity",
-      "impact": "Helped grow teams, mentor junior talent, and translate technical work into decisions that stakeholders could actually act on.",
-      "summary": "Strong projects need more than model quality; they need communication, trust, and systems people can operate."
-    }
-  ],
-  "engagements": [
-    {
-      "title": "W2",
-      "description": "Full-time senior IC or hands-on technical lead roles in applied AI/ML — owning systems end-to-end across product, engineering, and operations."
-    },
-    {
-      "title": "Part-time",
-      "description": "Ongoing involvement without a full-time commitment — useful for teams that need senior technical judgment alongside their existing build velocity."
-    },
-    {
-      "title": "Consulting",
-      "description": "Focused, scoped engagements: a model stack to improve, an evaluation loop to design, or a system to move from prototype to production."
-    },
-    {
-      "title": "Advisory",
-      "description": "Periodic strategic input for founders and engineering leaders who want a second opinion on AI/ML direction without a delivery commitment."
-    },
-    {
-      "title": "Mentee / Mentorship",
-      "description": "Mentoring junior data scientists and ML engineers — and open to being mentored by people deeper in adjacent areas like distributed systems or research ML."
-    },
-    {
-      "title": "Collaboration / Projects",
-      "description": "Open-source builds, applied research, and side projects with peers when the problem is meaningful and the work fits alongside ongoing engagements."
+      "label": "LLMs and agents",
+      "items": [
+        "Claude Code",
+        "Codex",
+        "Cursor",
+        "OpenCode",
+        "CrewAI",
+        "RAG",
+        "Ollama",
+        "OpenRouter"
+      ]
     }
   ],
   "contact": {
-    "intro": "I work best with product, engineering, and operations teams who want practical progress: better decisions, better systems, and less AI theater.",
-    "primary_cta_label": "Email Rick",
-    "fit_eyebrow": "Good fit conversations",
-    "channels": [
-      {
-        "kind": "email",
-        "eyebrow": "Email",
-        "description": "Email is the fastest way to reach me about IC roles, consulting, or collaboration ideas.",
-        "link_label": "Open Email"
-      },
-      {
-        "kind": "link",
-        "eyebrow": "LinkedIn",
-        "title": "Professional Profile",
-        "description": "Useful if you want to connect first, share context, or continue the conversation in a more public channel.",
-        "link_label": "Visit LinkedIn",
-        "url_field": "linkedin_url"
-      },
-      {
-        "kind": "link",
-        "eyebrow": "GitHub",
-        "title": "Code and Experiments",
-        "description": "Browse public repos, side projects, and the code behind this site.",
-        "link_label": "View GitHub",
-        "url_field": "github_url"
-      }
-    ]
+    "intro": "Email is the fastest way to reach me.",
+    "primary_cta_label": "Email me"
   },
-  "banner": "images/LinkedIn/LinkedIn-Banner.png",
-  "banner_heading": "Intelligence Built for Enterprise",
   "seo": {
-    "meta_title": "Rick Arko | Data Scientist, ML Engineer, AI Builder",
-    "meta_keywords": [
-      "applied AI",
-      "senior data scientist",
-      "machine learning engineer",
-      "LLM systems",
-      "production machine learning"
-    ]
+    "meta_title": "Rick Arko | Senior Data Scientist and ML Engineer",
+    "meta_description": "Rick Arko builds probabilistic ML systems in production: freight pricing, delivery-time prediction, demand forecasting, and agentic tooling for data science teams. Chicago, IL."
   }
 }
