@@ -2,8 +2,8 @@
   "profile": {
     "name": "Rick Arko",
     "headline": "Senior Data Scientist and ML Engineer",
-    "short_tagline": "I build probabilistic machine learning systems and own them in production: freight pricing, delivery-time prediction, and demand forecasting for logistics companies. Lately I also build the agentic tooling that helps data science teams ship.",
-    "current_role": "Currently a Senior Data Scientist at Arrive Logistics in Chicago, working on quantile pricing for truckload freight.",
+    "short_tagline": "I build calibrated, probabilistic machine learning systems and own them in production: real-time pricing, transit-time prediction, recommendations, and demand forecasting. I also build the agentic tooling and experimentation workflows that help teams ship.",
+    "current_role": "Currently a Senior Data Scientist at Arrive Logistics, working on quantile pricing and offer automation for truckload freight.",
     "email": "rickarko@pm.me",
     "linkedin_url": "https://www.linkedin.com/in/rickarko",
     "github_url": "https://github.com/RickArko",
@@ -52,9 +52,9 @@
     }
   ],
   "about": [
-    "I'm a data scientist and ML engineer with over ten years in logistics. At Coyote Logistics I worked on real-time freight pricing and load matching. At ShipBob I owned the ML platform behind demand forecasting, delivery-time prediction, and inventory planning. Today I work on truckload pricing at Arrive Logistics.",
-    "Most of my work is probabilistic: quantile regression, conformal calibration, and forecasting at scale, plus the backtests and simulations that show a model is better before it ships. I take models the whole way, from SQL and feature pipelines to FastAPI services, Docker, and the apps people use to make decisions.",
-    "Outside work I build complete products on the same stack, from open-source forecasting benchmarks to a live crypto research app and a sports data platform behind several deployed apps."
+    "I'm a full-stack data scientist and ML engineer with over a decade of production ownership experience. At Coyote Logistics I worked on real-time freight pricing and load matching. At ShipBob I owned the ML platform powering forecasting, delivery-time prediction, and inventory optimization. Today I work on truckload pricing and offer automation at Arrive Logistics.",
+    "Most of my work is probabilistic: quantile regression, conformal calibration, and forecasting at scale. I work on problems where the data is noisy, confidence matters, and outcomes move the bottom line. I design the backtesting and simulation infrastructure to prove a model works before it ships. I believe in end-to-end ownership, from feature pipelines to distributed API services to the interfaces leadership uses to make decisions.",
+    "Outside work I build complete products on the same stack, from open-source prediction benchmarks and sports data products to crypto research tooling."
   ],
   "facts": [
     {
