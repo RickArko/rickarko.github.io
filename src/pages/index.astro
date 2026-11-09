@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Nav from "../components/Nav.astro";
 import Hero from "../components/Hero.astro";
-import ProofStrip from "../components/ProofStrip.astro";
 import About from "../components/About.astro";
 import Experience from "../components/Experience.astro";
 import Projects from "../components/Projects.astro";
@@ -13,18 +12,28 @@ import { experience, home, projects } from "../lib/content";
 import "../styles/global.css";
 
 const year = new Date().getFullYear();
+const { profile, seo } = home;
 ---
 
-<BaseLayout>
-  <Nav name={home.profile.name} />
-  <main>
+<BaseLayout
+  title={seo?.meta_title ?? `${profile.name} | ${profile.headline}`}
+  description={seo?.meta_description ?? profile.short_tagline}
+  person={{
+    name: profile.name,
+    jobTitle: profile.headline,
+    email: profile.email,
+    location: profile.location,
+    sameAs: [profile.linkedin_url, profile.github_url],
+  }}
+>
+  <Nav name={profile.name} resumeUrl={profile.resume_url} />
+  <main id="main">
     <Hero home={home} />
-    <ProofStrip home={home} />
     <About home={home} />
     <Experience experience={experience} />
     <Projects projects={projects} />
     <Skills home={home} />
     <Contact home={home} />
   </main>
-  <Footer name={home.profile.name} year={year} />
+  <Footer name={profile.name} year={year} />
 </BaseLayout>

@@ -1,0 +1,82 @@
+---
+import type { Project } from "../lib/content";
+import { hostname } from "../lib/content";
+import Icon from "./Icon.astro";
+import PlatformFigure from "./figures/PlatformFigure.astro";
+import AgentFigure from "./figures/AgentFigure.astro";
+import RecsFigure from "./figures/RecsFigure.astro";
+
+interface Props {
+  project: Project;
+  eager?: boolean;
+}
+
+const { project, eager = false } = Astro.props;
+const alt = project.alt ?? project.title;
+const browser = project.frame === "browser" && Boolean(project.demo_url);
+const kind = project.figure ? "figure" : browser ? "browser" : "chart";
+
+const figures = {
+  platform: PlatformFigure,
+  agent: AgentFigure,
+  recs: RecsFigure,
+} as const;
+const Figure = project.figure ? figures[project.figure] : null;
+---
+
+<div class:list={["frame", `frame--${kind}`]}>
+  {
+    browser && (
+      <div class="frame__bar" aria-hidden="true">
+        <span class="frame__url">
+          <Icon name="lock" />
+          {hostname(project.demo_url)}
+        </span>
+      </div>
+    )
+  }
+  <div class="frame__view">
+    {
+      Figure ? (
+        <div role="img" aria-label={alt} style="height:100%">
+          <Figure />
+        </div>
+      ) : project.video ? (
+        <>
+          <video
+            muted
+            loop
+            playsinline
+            preload="none"
+            poster={project.image}
+            aria-label={alt}
+            data-autoplay
+          >
+            <source src={project.video} type="video/mp4" />
+          </video>
+          {/* Shown by the BaseLayout script; without JS the poster stays still. */}
+          <button
+            type="button"
+            class="frame__toggle"
+            data-video-toggle
+            data-title={project.title}
+            aria-label={`Play ${project.title} video`}
+            hidden
+          >
+            <span class="frame__toggle-play"><Icon name="play" /></span>
+            <span class="frame__toggle-pause"><Icon name="pause" /></span>
+          </button>
+        </>
+      ) : project.image ? (
+        <img
+          src={project.image}
+          alt={alt}
+          width="1600"
+          height="1000"
+          loading={eager ? "eager" : "lazy"}
+          decoding="async"
+        />
+      ) : null
+    }
+  </div>
+</div>

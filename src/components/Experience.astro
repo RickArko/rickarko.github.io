@@ -21,59 +21,63 @@ function monogram(name: string): string {
 
 <section class="section" id="experience">
   <div class="container">
-    <span class="section__eyebrow">Experience</span>
-    <h2 class="section__title">{experience.summary.title}</h2>
-    <p class="section__lead">
-      Roles where models had to ship, stay up, and earn trust from operators.
-    </p>
-    <div class="exp-list">
+    <header class="section__head">
+      <h2 class="section__title">{experience.summary.title}</h2>
       {
-        employers.map((employer) => (
-          <article class="exp-item">
-            <div class="exp-item__rail">
-              {employer.logo ? (
-                <img
-                  class="exp-item__logo"
-                  src={employer.logo}
-                  alt=""
-                  width="56"
-                  height="56"
-                  loading="lazy"
-                />
-              ) : (
-                <span
-                  class="exp-item__logo exp-item__logo--mono"
-                  aria-hidden="true"
-                >
-                  {monogram(employer.employer_name)}
-                </span>
-              )}
-            </div>
-            <div class="exp-item__body">
-              <header class="exp-item__header">
-                <h3 class="exp-item__employer">{employer.employer_name}</h3>
-                <span class="exp-item__duration">
-                  {employer.employer_duration}
-                </span>
-              </header>
-              {employer.roles.map((role) => (
-                <div class="exp-role">
-                  <div class="exp-role__row">
-                    <h4 class="exp-role__title">{role.job_title}</h4>
-                    <span class="exp-role__duration">{role.duration}</span>
-                  </div>
-                  <p class="exp-role__headline">{role.headline}</p>
-                  <ul>
-                    {role.highlights.map((item) => (
-                      <li>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </article>
-        ))
+        experience.summary.description && (
+          <p class="section__lead">{experience.summary.description}</p>
+        )
       }
-    </div>
+    </header>
+    <ol class="jobs">
+      {
+        employers.map((employer) => {
+          const multiRole = employer.roles.length > 1;
+          const meta = [employer.employer_duration, employer.location]
+            .filter(Boolean)
+            .join(", ");
+          return (
+            <li class="job">
+              <div class="job__rail">
+                {employer.logo ? (
+                  <img
+                    class="job__logo"
+                    src={employer.logo}
+                    alt=""
+                    width="48"
+                    height="48"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span class="job__logo job__logo--mono" aria-hidden="true">
+                    {monogram(employer.employer_name)}
+                  </span>
+                )}
+              </div>
+              <div>
+                <header class="job__head">
+                  <h3 class="job__employer">{employer.employer_name}</h3>
+                  <p class="job__meta">{meta}</p>
+                </header>
+                {employer.roles.map((role) => (
+                  <div class="role">
+                    <div class="role__head">
+                      <h4 class="role__title">{role.job_title}</h4>
+                      {multiRole && <span class="role__dates">{role.duration}</span>}
+                    </div>
+                    <p class="role__summary">{role.headline}</p>
+                    <ul class="role__points">
+                      {role.highlights.map((item) => (
+                        <li>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </li>
+          );
+        })
+      }
+    </ol>
   </div>
 </section>

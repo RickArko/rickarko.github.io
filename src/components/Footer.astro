@@ -7,12 +7,12 @@ interface Props {
 const { name, year } = Astro.props;
 ---
 
-<footer class="site-footer">
-  <div class="container">
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© {year} {name}. Also at <a href="https://rickarko.com">rickarko.com</a>.</p>
     <p>
-      © {year}
-      {name}. Public builds also live at 
-      <a href="https://rickarko.com">rickarko.com</a>.
+      Built with Astro and deployed on GitHub Pages.{" "}
+      <a href="https://github.com/RickArko/rickarko.github.io">View the source</a>.
     </p>
   </div>
 </footer>

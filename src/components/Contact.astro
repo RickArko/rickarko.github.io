@@ -1,5 +1,6 @@
 ---
 import type { Home } from "../lib/content";
+import Icon from "./Icon.astro";
 
 interface Props {
   home: Home;
@@ -7,43 +8,39 @@ interface Props {
 
 const { home } = Astro.props;
 const { profile, contact } = home;
-
-function channelHref(channel: Record<string, unknown>): string {
-  if (channel.kind === "email") return `mailto:${profile.email}`;
-  if (channel.url_field === "linkedin_url") return profile.linkedin_url;
-  if (channel.url_field === "github_url") return profile.github_url;
-  return "#";
-}
 ---
 
 <section class="section" id="contact">
   <div class="container">
-    <span class="section__eyebrow">Contact</span>
-    <h2 class="section__title">Let's Talk</h2>
-    <div class="contact__panel">
-      <div>
-        <p>{contact.intro}</p>
-        <p>{profile.availability}</p>
+    <h2 class="section__title">Contact</h2>
+    <p class="section__lead">{contact.intro}</p>
+    <a class="contact__email" href={`mailto:${profile.email}`}>{profile.email}</a>
+    <p class="contact__availability">{profile.availability}</p>
+    <ul class="contact__links">
+      <li>
         <a class="btn btn--primary" href={`mailto:${profile.email}`}>
+          <Icon name="mail" />
           {contact.primary_cta_label}
         </a>
-      </div>
-      <div class="contact__channels">
-        {
-          contact.channels.map((channel) => (
-            <a
-              class="contact__channel"
-              href={channelHref(channel as Record<string, unknown>)}
-              rel={channel.kind === "email" ? undefined : "noopener noreferrer"}
-            >
-              <span>{String(channel.eyebrow || "")}</span>
-              {channel.kind === "email"
-                ? profile.email
-                : String(channel.title || channel.link_label || "")}
-            </a>
-          ))
-        }
-      </div>
-    </div>
+      </li>
+      <li>
+        <a class="btn btn--ghost" href={profile.linkedin_url} rel="me noopener">
+          <Icon name="linkedin" />
+          LinkedIn
+        </a>
+      </li>
+      <li>
+        <a class="btn btn--ghost" href={profile.github_url} rel="me noopener">
+          <Icon name="github" />
+          GitHub
+        </a>
+      </li>
+      <li>
+        <a class="btn btn--ghost" href={profile.resume_url}>
+          <Icon name="download" />
+          Resume (PDF)
+        </a>
+      </li>
+    </ul>
   </div>
 </section>

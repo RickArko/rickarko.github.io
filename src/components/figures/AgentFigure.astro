@@ -1,0 +1,63 @@
+---
+/**
+ * arkolab agent loop, as implemented in BASB src/arkolab/agents/loop.py:
+ * BM25 memory search -> LLM via router -> tool registry dispatch ->
+ * observation appended to the event log, until a final answer.
+ */
+const ROW_Y = 92;
+const NODE_W = 118;
+const NODE_H = 52;
+const cols = [12, 141, 270];
+const cx = (i: number) => cols[i] + NODE_W / 2;
+const steps = [
+  { title: "Memory search", sub: "BM25 recall" },
+  { title: "LLM step", sub: "OpenRouter, Ollama" },
+  { title: "Tool registry", sub: "Dispatch calls" },
+];
+---
+
+<svg viewBox="0 0 400 250" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="af-arrow" viewBox="0 0 8 8" refX="1" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path class="fig-arrow" d="M0 0L8 4L0 8Z"></path>
+    </marker>
+    <marker id="af-arrow-key" viewBox="0 0 8 8" refX="1" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path class="fig-arrow--key" d="M0 0L8 4L0 8Z"></path>
+    </marker>
+  </defs>
+
+  <!-- Entry and exit -->
+  <rect class="fig-node" x={cols[0]} y="20" width={NODE_W} height="32" rx="6"></rect>
+  <text class="fig-text fig-text--sm" x={cols[0] + 12} y="41">Task</text>
+  <path class="fig-edge" d={`M${cx(0)} 52V${ROW_Y - 7}`} marker-end="url(#af-arrow)"></path>
+
+  <rect class="fig-node" x={cols[1]} y="20" width={NODE_W} height="32" rx="6"></rect>
+  <text class="fig-text fig-text--sm" x={cols[1] + 12} y="41">Final answer</text>
+  <path class="fig-edge" d={`M${cx(1)} ${ROW_Y}V59`} marker-end="url(#af-arrow)"></path>
+
+  <!-- Loop -->
+  {
+    steps.map((s, i) => (
+      <g>
+        <rect class="fig-node fig-node--key" x={cols[i]} y={ROW_Y} width={NODE_W} height={NODE_H} rx="7" />
+        <text class="fig-text fig-text--sm" x={cols[i] + 10} y={ROW_Y + 22}>
+          {s.title}
+        </text>
+        <text class="fig-sub" x={cols[i] + 10} y={ROW_Y + 40}>
+          {s.sub}
+        </text>
+      </g>
+    ))
+  }
+  <path class="fig-edge fig-edge--key" d={`M${cols[0] + NODE_W} ${ROW_Y + 26}H${cols[1] - 7}`} marker-end="url(#af-arrow-key)"></path>
+  <path class="fig-edge fig-edge--key" d={`M${cols[1] + NODE_W} ${ROW_Y + 26}H${cols[2] - 7}`} marker-end="url(#af-arrow-key)"></path>
+  <path
+    class="fig-edge fig-edge--key"
+    d={`M${cx(2)} ${ROW_Y + NODE_H}C${cx(2)} 192 ${cx(0)} 192 ${cx(0)} ${ROW_Y + NODE_H + 7}`}
+    marker-end="url(#af-arrow-key)"></path>
+  <text class="fig-sub" x="200" y="170" text-anchor="middle">Observation</text>
+
+  <!-- Audit trail -->
+  <rect class="fig-node" x="12" y="206" width="376" height="30" rx="6" style="stroke-dasharray:4 4"></rect>
+  <text class="fig-sub" x="24" y="225">Every step is appended to the event log as an audit trail</text>
+</svg>

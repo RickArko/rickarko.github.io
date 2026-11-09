@@ -7,6 +7,7 @@ import type { z } from "zod";
 export type Home = z.infer<typeof homeSchema>;
 export type Experience = z.infer<typeof experienceSchema>;
 export type Projects = z.infer<typeof projectsSchema>;
+export type Project = Projects["projects"][number];
 
 export const home: Home = homeSchema.parse(homeJson);
 export const experience: Experience = experienceSchema.parse(experienceJson);
@@ -18,9 +19,16 @@ export function sortedEmployers(exp: Experience) {
     .map(([, entry]) => entry);
 }
 
-export function skillGroups(h: Home) {
-  return {
-    expertise: h.expertise,
-    technologies: h.toolkit,
-  };
+export function projectsByTier(p: Projects) {
+  const by = (tier: Project["tier"]) => p.projects.filter((x) => x.tier === tier);
+  return { featured: by("featured"), grid: by("grid"), more: by("more") };
+}
+
+/** "https://btc.rickarko.com/" -> "btc.rickarko.com" */
+export function hostname(url: string): string {
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return url;
+  }
 }

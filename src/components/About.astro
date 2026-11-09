@@ -8,9 +8,10 @@ interface Props {
 const { home } = Astro.props;
 ---
 
-<section class="section section--alt" id="about">
-  <div class="container">
-    <div class="about__header">
+<section class="section" id="about">
+  <div class="container about">
+    <picture>
+      <source srcset="/images/profile-image.webp" type="image/webp" />
       <img
         class="about__portrait"
         src="/images/profile-image.png"
@@ -18,23 +19,25 @@ const { home } = Astro.props;
         width="480"
         height="600"
         loading="lazy"
+        decoding="async"
       />
-      <div class="about__intro">
-        <span class="section__eyebrow">About</span>
-        <h2 class="section__title">Builder / Senior IC</h2>
-        <div class="about__copy">
-          {home.about.map((para) => <p>{para}</p>)}
-        </div>
+    </picture>
+    <div>
+      <h2 class="section__title">About</h2>
+      <div class="about__copy">
+        {home.about.map((para) => <p>{para}</p>)}
       </div>
-    </div>
-    <div class="about__grid">
       {
-        home.wins.map((win) => (
-          <article class="about__card">
-            <h3>{win.title}</h3>
-            <p>{win.impact}</p>
-          </article>
-        ))
+        home.facts.length > 0 && (
+          <dl class="facts">
+            {home.facts.map((fact) => (
+              <div>
+                <dt>{fact.label}</dt>
+                <dd>{fact.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )
       }
     </div>
   </div>

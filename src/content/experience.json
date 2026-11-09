@@ -1,95 +1,99 @@
 {
   "summary": {
-    "eyebrow": "",
-    "title": "Enterprise Experience",
-    "description": ""
+    "title": "Experience"
   },
   "experience": {
     "1": {
       "employer_name": "Arrive Logistics",
-      "employer_duration": "July 2026 - Present",
+      "employer_duration": "July 2026 – Present",
+      "location": "Chicago, IL",
       "logo": "/images/logos/arrive_logistics-logo.jpeg",
       "roles": [
         {
           "job_title": "Senior Data Scientist",
-          "duration": "July 2026 - Present",
-          "headline": "Quantile truckload, Agentic Engineering and Data best practices leadership.",
+          "duration": "July 2026 – Present",
+          "headline": "Quantile pricing for truckload freight, and agentic tooling for the data science team.",
           "highlights": [
-            "Develop quantile models for truckload pricing using machine learning, statistical inference for predictive shifts and conformal methods for calibration.",
-            "Develop agentic tooling to speed up scientific experimentation and application development.",
-            "Pioneer tooling for secure DuckDB analytics marts integrated with production Snowflake data, enabling secure real-time analytics applications to improve decision-making and operational efficiency."
+            "Build quantile pricing models with group-wise and global conformal calibration, with automated reporting against production and development.",
+            "Built experimentation and backtesting pipelines for the existing pricing engines, and showed gains with a single, interpretable alternative.",
+            "Set up Snowflake, Azure ML, FastAPI, Streamlit, and Docker with packaged Claude Code and Cursor configurations for secure tool access across environments.",
+            "Wrote agentic skills that turn scientists' notebooks into secure, branded apps on shared infrastructure at no added cost, with scheduled offline reports delivered through Slack."
           ]
         }
       ]
     },
     "2": {
       "employer_name": "ShipBob",
-      "employer_duration": "February 2022 - May 2026",
+      "employer_duration": "February 2022 – May 2026",
+      "location": "Chicago, IL",
       "logo": "/images/logos/shipbob-logo.jpeg",
       "roles": [
         {
-          "job_title": "Data Scientist",
-          "duration": "February 2022 - May 2026",
-          "headline": "Owner of ML platform: forecasting, inventory optimization, eta prediction, operational intelligence across a fast-changing fulfillment network.",
+          "job_title": "Data Scientist, ML Platform Owner",
+          "duration": "February 2022 – May 2026",
+          "headline": "Technical lead and owner of the Databricks and Azure ML platform behind forecasting, delivery-time prediction, inventory replenishment, and labor planning for an e-commerce fulfillment network.",
           "highlights": [
-            "ML platform owner on Databricks / Azure ML Foundry across forecasting, ETA prediction (quantile regression, conformal calibration), classification, outlier detection, and NLP.",
-            "Built ETA prediction (100M+ orders/year) and demand forecasting (1M+ timeseries, weekly) end-to-end.",
-            "Layered in anomaly detection, promotion adjustments, and stock-out corrections to keep forecasts honest under real operating noise.",
-            "Mentored scientists and engineers; translated technical work for product and operations stakeholders."
+            "Replaced hundreds of site-specific Prophet and ARIMA models with one ML forecasting engine, cutting daily weighted error from about 30% to 15%.",
+            "Built delivery-time prediction for 100M+ orders a year with quantile regression and conformal calibration, and demand forecasting across 1M+ series every week.",
+            "Built simulation and backtesting engines for forecasting, replenishment, and delivery estimates, so models were judged on business KPIs before release.",
+            "Shipped a delivery-estimate service on a tight deadline to onboard a multi-billion-dollar account: distilled the model into a static lookup that kept 80% of the modeled lift, and load-tested it with Docker Compose and Locust.",
+            "Set engineering standards (git, CI/CD, linting, tests, backtests) across about 50 data science repositories, and wrote interview case studies used in dozens of senior and staff interviews.",
+            "Took 2nd place in the company AI hackathon (December 2025) with a one-day agentic, multimodal demand forecasting app for cold-start products, built with CrewAI, CLIP embeddings, and RAG."
           ]
         }
       ]
     },
     "3": {
       "employer_name": "Coyote Logistics",
-      "employer_duration": "July 2015 - February 2022",
+      "employer_duration": "July 2015 – February 2022",
+      "location": "Chicago, IL",
       "logo": "/images/logos/coyote-logistics-logo.jpg",
       "roles": [
         {
-          "job_title": "Senior Data Scientist",
-          "duration": "June 2021 - February 2022",
-          "headline": "Owned real-time pricing systems where quality and uptime had direct financial consequences.",
+          "job_title": "Senior Data Scientist, ML Engineer",
+          "duration": "June 2021 – February 2022",
+          "headline": "Owned the models behind real-time freight pricing, where accuracy and uptime had direct financial consequences.",
           "highlights": [
-            "Owner of the ML training and reporting pipelines powering BIN, Market Cost, Market Rate",
-            "Led automated tender acceptance and a baseline market-cost service that matched ensemble accuracy on standard orders using only five shipment inputs.",
-            "Built REST services on AKS with batch endpoints and explainability features for human review.",
-            "Interviewed, hired, and mentored as the team grew."
+            "Owned training and reporting pipelines for the Book It Now, Market Rate, and Market Cost pricing services.",
+            "Led automated tender acceptance, and built a baseline market-cost model that matched the production ensemble on standard orders using only five shipment features.",
+            "Built REST services on AKS with batch endpoints and SHAP-based explanations for human review.",
+            "Interviewed, hired, and mentored as the data science team grew from 2 people to more than 10."
           ]
         },
         {
           "job_title": "Data Scientist",
-          "duration": "July 2017 - June 2021",
-          "headline": "Delivered pricing and recommendation models that were useful in production, not just accurate offline.",
+          "duration": "June 2017 – June 2021",
+          "headline": "Built pricing and recommendation models that held up in production.",
           "highlights": [
-            "Deployed pricing models using gradient boosting, quantile regression, and ensembles.",
-            "Tuned recommendation systems for freight matching and demonstrated measurable lift in production.",
-            "Shipped explainability endpoints that translated model behavior into human-readable reasons."
+            "Deployed pricing models built on gradient boosting, quantile regression forests, and ensembles.",
+            "Tuned recommendation models for freight matching and measured their lift in production.",
+            "Automated a network optimization that matched empty UPS trucks with Coyote freight.",
+            "Shipped explainability endpoints that turned model outputs into readable reasons for operators."
           ]
         },
         {
           "job_title": "Data Science Analyst",
-          "duration": "July 2015 - August 2017",
-          "headline": "Started in forecasting and experimentation while learning how data products succeed inside real organizations.",
+          "duration": "July 2015 – June 2017",
+          "headline": "Forecasting and experimentation for a freight brokerage.",
           "highlights": [
-            "Built enterprise forecasts using ARIMA and ETS across business accounts.",
-            "Automated freight matching workflows in R and Python alongside DBAs, scientists, and engineers.",
-            "Designed and ran A/B tests for recommendation approaches in a live matching application."
+            "Built account-level forecasts with SARIMAX and ETS, and automated the pipelines that refreshed them.",
+            "Automated freight-matching workflows in R and Python with DBAs, scientists, and engineers.",
+            "Designed and ran A/B tests of recommendation approaches in a live matching app."
           ]
         }
       ]
     },
     "4": {
       "employer_name": "RAR Enabled",
-      "employer_duration": "January 2015 - July 2015",
+      "employer_duration": "January 2015 – July 2015",
       "roles": [
         {
           "job_title": "Data Analyst",
-          "duration": "January 2015 - July 2015",
-          "headline": "Applied predictive modeling in a noisy domain where positive outcomes were rare and precision mattered.",
+          "duration": "January 2015 – July 2015",
+          "headline": "Predictive modeling for debt collection, where positive outcomes were rare.",
           "highlights": [
-            "Led model development across debt portfolios in healthcare, utilities, and other domains.",
-            "Built classification and regression models to estimate payment likelihood and expected value in highly imbalanced data.",
-            "Deployed a scoring workflow for incoming placements and tuned collection strategy from the results."
+            "Built classification and regression models for payment likelihood and expected value on highly imbalanced data, across healthcare, utility, and other portfolios.",
+            "Deployed a scoring workflow for new placements and tuned collection strategy from the results."
           ]
         }
       ]

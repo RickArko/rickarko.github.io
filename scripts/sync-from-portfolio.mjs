@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -107,10 +108,8 @@ const home = {
     primary_cta: { label: "See Experience", href: "#experience" },
     secondary_cta: { label: "Get in Touch", href: "#contact" },
   },
-  // Pages-only curated list; keep local if Portfolio has none
-  toolkit: Array.isArray(homeRaw.toolkit) && homeRaw.toolkit.length
-    ? homeRaw.toolkit
-    : localToolkit,
+  // Pages-only curated, grouped list ({ label, items }[]); always keep local.
+  toolkit: localToolkit,
 };
 
 const experienceRaw = JSON.parse(
@@ -176,14 +175,13 @@ fs.writeFileSync(
 console.log("  wrote src/content/{home,experience,projects}.json");
 
 // Core assets
-copyFile(
-  path.join(PORTFOLIO, "src/static/images/profile-image.png"),
-  path.join(ROOT, "public/images/profile-image.png"),
-);
-copyFile(
-  path.join(PORTFOLIO, "src/static/favicon.ico"),
-  path.join(ROOT, "public/favicon.ico"),
-);
+const portrait = path.join(ROOT, "public/images/profile-image.png");
+copyFile(path.join(PORTFOLIO, "src/static/images/profile-image.png"), portrait);
+// About.astro serves the WebP to most browsers, so rebuild it from the PNG
+// on every sync. Otherwise a new headshot would only reach PNG-only clients.
+await sharp(portrait).webp({ quality: 82 }).toFile(portrait.replace(/\.png$/, ".webp"));
+console.log("  wrote public/images/profile-image.webp");
+// favicon.ico / favicon.svg / og.png are Pages-owned; not synced.
 copyFile(
   path.join(PORTFOLIO, "src/static/images/logos/shipbob-logo.jpeg"),
   path.join(ROOT, "public/images/logos/shipbob-logo.jpeg"),

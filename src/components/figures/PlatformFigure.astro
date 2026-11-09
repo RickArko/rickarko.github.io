@@ -1,0 +1,74 @@
+---
+/** Data flow for nfl-data and cfb-data: warehouses (with sources) -> apps. */
+const WH_X = 14;
+const WH_W = 176;
+const WH_H = 58;
+const APP_X = 252;
+const APP_W = 134;
+const APP_H = 32;
+
+const warehouses = {
+  nfl: { label: "nfl-data", sources: "nflverse, PFR, odds API", y: 42 },
+  cfb: { label: "cfb-data", sources: "CFBD, ESPN", y: 150 },
+} as const;
+
+const apps = [
+  { label: "Sleeper Brain", y: 22, from: "nfl" },
+  { label: "FFPy", y: 62, from: "nfl" },
+  { label: "NFL Survivor", y: 102, from: "nfl" },
+  { label: "CFB Fantasy", y: 163, from: "cfb" },
+] as const;
+
+const curve = (x1: number, y1: number, x2: number, y2: number) => {
+  const dx = (x2 - x1) / 2;
+  return `M${x1} ${y1}C${x1 + dx} ${y1} ${x2 - dx} ${y2} ${x2 - 6} ${y2}`;
+};
+---
+
+<svg viewBox="0 0 400 250" role="presentation" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="pf-arrow" viewBox="0 0 8 8" refX="1" refY="4" markerWidth="6" markerHeight="6" orient="auto">
+      <path class="fig-arrow--key" d="M0 0L8 4L0 8Z"></path>
+    </marker>
+  </defs>
+
+  {
+    apps.map((a) => {
+      const wh = warehouses[a.from];
+      return (
+        <path
+          class="fig-edge fig-edge--key"
+          d={curve(WH_X + WH_W, wh.y + WH_H / 2, APP_X, a.y + APP_H / 2)}
+          marker-end="url(#pf-arrow)"
+        />
+      );
+    })
+  }
+
+  {
+    Object.values(warehouses).map((w) => (
+      <g>
+        <rect class="fig-node fig-node--key" x={WH_X} y={w.y} width={WH_W} height={WH_H} rx="7" />
+        <text class="fig-text" x={WH_X + 12} y={w.y + 24}>
+          {w.label}
+        </text>
+        <text class="fig-sub" x={WH_X + 12} y={w.y + 43}>
+          {w.sources}
+        </text>
+      </g>
+    ))
+  }
+
+  {
+    apps.map((a) => (
+      <g>
+        <rect class="fig-node" x={APP_X} y={a.y} width={APP_W} height={APP_H} rx="6" />
+        <text class="fig-text fig-text--sm" x={APP_X + 11} y={a.y + 21}>
+          {a.label}
+        </text>
+      </g>
+    ))
+  }
+
+  <text class="fig-sub" x={WH_X} y="236">Champion/challenger models, 80% interval coverage gate</text>
+</svg>
