@@ -6,6 +6,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import sharp from "sharp";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
@@ -174,10 +175,12 @@ fs.writeFileSync(
 console.log("  wrote src/content/{home,experience,projects}.json");
 
 // Core assets
-copyFile(
-  path.join(PORTFOLIO, "src/static/images/profile-image.png"),
-  path.join(ROOT, "public/images/profile-image.png"),
-);
+const portrait = path.join(ROOT, "public/images/profile-image.png");
+copyFile(path.join(PORTFOLIO, "src/static/images/profile-image.png"), portrait);
+// About.astro serves the WebP to most browsers, so rebuild it from the PNG
+// on every sync. Otherwise a new headshot would only reach PNG-only clients.
+await sharp(portrait).webp({ quality: 82 }).toFile(portrait.replace(/\.png$/, ".webp"));
+console.log("  wrote public/images/profile-image.webp");
 // favicon.ico / favicon.svg / og.png are Pages-owned; not synced.
 copyFile(
   path.join(PORTFOLIO, "src/static/images/logos/shipbob-logo.jpeg"),
