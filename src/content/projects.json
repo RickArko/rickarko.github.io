@@ -146,7 +146,7 @@
       "video": "/images/projects/sleeper-brain.mp4",
       "image": "/images/projects/sleeper-brain.webp",
       "frame": "browser",
-      "alt": "Recording of Sleeper Brain on a synced league: start/sit recommendations with the points they add, starters with floor and ceiling projections, waiver targets, a player projection adjusted for a shootout game script with a week-by-week outlook, and trade proposals where both teams gain.",
+      "alt": "Recording of Sleeper Brain on a synced league: start/sit recommendations with the points they add, starters with floor and ceiling projections, waiver targets, a player projection adjusted for a shootout game script, and trade proposals where both teams gain.",
       "github_url": "",
       "demo_url": "https://sleeper-brain.fly.dev",
       "technologies": ["Python", "FastAPI", "Vue.js", "PuLP", "Supabase", "Fly.io"]
