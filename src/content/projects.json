@@ -68,6 +68,22 @@
       "technologies": ["Python", "pandas", "FastAPI", "SQLite", "Leaflet", "Fly.io"]
     },
     {
+      "id": "nfl-survivor",
+      "tier": "featured",
+      "title": "NFL Survivor",
+      "tagline": "Private survivor pool with a live Sunday board",
+      "description": "Pick one team to win each week and use each team only once. Lose or tie and you are out, and the last entry standing takes the pot. Pools are invite-only, and a pick stays hidden from everyone, the commissioner included, until its game kicks off.",
+      "impact": "At kickoff the picks appear on a live scoreboard that says what is at stake right now: \"Losing by 3, out if it ends now.\" A live score never eliminates anyone; only a final does.",
+      "engineering": "Server-rendered FastAPI and Jinja2 on one SQLite file, and every page works without JavaScript. Survival is recomputed from stored picks and results on every load, so a refresh can't change who is alive. Hidden picks are left out of the HTML, not hidden with CSS. 245 tests.",
+      "video": "/images/projects/nfl-survivor.mp4",
+      "image": "/images/projects/nfl-survivor.webp",
+      "frame": "browser",
+      "alt": "Recording of an NFL Survivor pool: picking a team before kickoff, the list of who has picked with teams hidden, the live scoreboard showing each revealed pick and what is at stake, and the final results with two entries eliminated.",
+      "github_url": "",
+      "demo_url": "https://survivor.rickarko.com",
+      "technologies": ["Python", "FastAPI", "Jinja2", "SQLite", "Fly.io"]
+    },
+    {
       "id": "sports-data-platform",
       "tier": "grid",
       "title": "Sports data platform",
@@ -148,16 +164,6 @@
       "github_url": "",
       "demo_url": "https://cfbsicko.com",
       "technologies": ["Python", "FastAPI", "Vue.js", "Vite", "Supabase"]
-    },
-    {
-      "id": "nfl-survivor",
-      "tier": "more",
-      "title": "NFL Survivor",
-      "description": "A private survivor pool with invite codes, picks hidden until each game's kickoff, and a live Sunday board. Survival is computed from stored results, so a refresh can't change who is alive.",
-      "image": "",
-      "github_url": "",
-      "demo_url": "https://survivor.rickarko.com",
-      "technologies": ["FastAPI", "Jinja2", "SQLite"]
     },
     {
       "id": "ffpy",
