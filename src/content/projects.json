@@ -27,9 +27,10 @@
       "description": "Collects OHLCV data from Binance, Coinbase, and CoinGecko into DuckDB and serves a live Bitcoin dashboard: price tape, regime signals across liquidity, breadth, on-chain activity, volume, and ETF flows, and multi-horizon forecast bands.",
       "impact": "Forecast bands are block-bootstrapped, then conformal-rescaled to 50%, 80%, and 95% coverage. The app presents them as research bands, not price targets.",
       "engineering": "A private Python research toolkit: market data lands in a local DuckDB database, and Polars loads it as panels for forecasting experiments.",
+      "video": "/images/projects/btc-tracker.mp4",
       "image": "/images/projects/btc-tracker.webp",
       "frame": "browser",
-      "alt": "BTC market tracker dashboard showing a candlestick chart, regime readout, and liquidity, breadth, and ETF-flow indicators.",
+      "alt": "Recording of the BTC market tracker: the live price tape and regime readout, the full price history with moving-average and halving overlays, forecast bands at 50, 80, and 95% coverage, and a heatmap of monthly returns since 2015.",
       "github_url": "",
       "demo_url": "https://btc.rickarko.com",
       "technologies": ["Python", "DuckDB", "Polars", "httpx", "Typer"]
