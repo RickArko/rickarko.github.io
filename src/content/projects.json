@@ -51,6 +51,23 @@
       "technologies": ["Python", "FastAPI", "Vue.js", "Redis", "Supabase", "Fly.io"]
     },
     {
+      "id": "home-hunter",
+      "tier": "featured",
+      "title": "Home Hunter",
+      "tagline": "Home search, pricing, and offer negotiation from public data",
+      "description": "Built for my own home search. It ranks every listing in a market on 11 sub-scores, including value against comps, monthly cost, schools, commute, and flood risk, using Realtor.com listings, FEMA flood maps, Census geocoding, OpenStreetMap, and county parcel records. A sold-homes explorer compares each sale with its original list price, before any cuts or relistings.",
+      "impact": "For a home worth pursuing it builds a negotiation brief: an appraisal-style comp grid, a value range, an offer ladder with a pre-committed walk-away price, and a wait-or-offer table that replays what happened next to every past listing at the same stage. A backtest values each sale of the last 12 months from earlier sales only: 9.4% median error on 501 sales in the main market, printed next to every range.",
+      "engineering": "Deterministic Python with no LLM calls, and every number carries its source and sample size. FastAPI on Fly.io over Parquet and SQLite, with a reduced view for the buyer's agent that is scanned for private numbers before it is published. 1,445 tests.",
+      "video": "/images/projects/home-hunter.mp4",
+      "image": "/images/projects/home-hunter.webp",
+      "frame": "browser",
+      "alt": "Recording of Home Hunter: a map of ranked listings, the sold-comps explorer, an offer ladder with a walk-away price, and a negotiation brief with a wait-or-offer chart and comp grid.",
+      "github_url": "",
+      "demo_url": "https://homehunter.fly.dev",
+      "demo_label": "Live app (sign-in required)",
+      "technologies": ["Python", "pandas", "FastAPI", "SQLite", "Leaflet", "Fly.io"]
+    },
+    {
       "id": "sports-data-platform",
       "tier": "grid",
       "title": "Sports data platform",
